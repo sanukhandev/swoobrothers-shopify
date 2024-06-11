@@ -1,0 +1,120 @@
+<div data-section-id="{{ section.id }}" data-section-type="section-banner-v8" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %}">
+  <div class="section-banner-v8">
+    <div class="container container-v1">
+      <div class="row">        
+        <div class="col-md-6">
+          <div class="wpb_wrapper">
+            <div class="single_image normal-effect">
+              <div class="single_image-wrapper">
+                <img data-src="{% if section.settings.img_banner1 != blank %} {{section.settings.img_banner1 | img_url:'master'}} {% else %} //via.placeholder.com/558x651 {% endif %}" class="lazyload img-fluid" alt="_img_banner">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="wpb_wrapper">
+            <div class="nexio-title ">
+              {% if section.settings.title_banner2 != blank %}
+              <h3 class="title-banner">{{section.settings.title_banner2}}</h3>
+              {% endif %}
+              {% if section.settings.sub_title2 != blank %}
+              <div class="block-desc">{{section.settings.sub_title2}}</div>
+              {% endif %}
+              
+              {% if section.settings.btn_banner2 != blank %}
+              <a href="{{section.settings.url_banner2}}" target="_self" class="btn-banner">{{section.settings.btn_banner2}}</a>
+              {% endif %}
+            </div>
+
+            <div class="single_image normal-effect">
+              <div class="single_image-wrapper">
+                <img data-src="{% if section.settings.img_banner2 != blank %} {{section.settings.img_banner2 | img_url:'master'}} {% else %} //via.placeholder.com/680x570 {% endif %}" class="lazyload img-fluid" alt="_img_banner">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BANNER V8",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Setting Banner Left"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_banner1",
+      "label": "Image",
+      "info": "558 x 651px recommended"
+    },
+    {
+      "type": "header",
+      "content": "Setting Banner Right"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_banner2",
+      "label": "Image",
+      "info": "680 x 570px recommended"
+    },
+	{
+      "type": "text",
+      "id": "title_banner2",
+      "label": "Title",
+      "default": "See what’s new with up to 50% off online and in stores..."
+    },
+    {
+      "type": "text",
+      "id": "sub_title2",
+      "label": "Sub Title",
+      "default": "Shop the latest fashion online at Nicebeats and discover new favourites in women’s clothing. Find everything from casual day dresses to sharp office wear. We have jeans in every fit, premium quality items and the latest fashion essentials. Check out our Conscious collection made out of more sustainable materials, we bring you women’s fashion in a more sustainable way"
+    },
+    
+    {
+      "type": "text",
+      "id": "btn_banner2",
+      "label": "Button Label",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "url_banner2",
+      "label": "URL banner 2",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "Section Space"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    }
+  ],
+  "presets": [
+    {
+      "name": "BANNER V8",
+      "category": "HOME"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
