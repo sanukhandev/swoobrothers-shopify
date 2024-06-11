@@ -3961,12 +3961,13 @@
       "header": {
         "type": "header",
         "settings": {
-          "select_hds": "header_v2",
+          "select_hds": "header_v1",
           "hd_home_color_text": "#111111",
           "hd_home_enable_transparents": false,
           "hd_home_bg_header_normal": "#ffffff",
           "hd_bg_header_opacity": 1,
           "enable_sticky_hd_home": true,
+          "hd_home_logo": "shopify:\/\/shop_images\/Swoo_Bros.png",
           "hd_home_logo_maxwidth": 75,
           "hd_home_logo_svg": "",
           "select_hds_all": "header_ver1",
@@ -3975,6 +3976,7 @@
           "hd_other_bg_header_normal": "#121010",
           "hd_other_bg_header_opacity": 1,
           "enable_sticky_hd_other": false,
+          "hd_other_logo": "shopify:\/\/shop_images\/Swoo_Bros.png",
           "hd_other_logo_maxwidth": 70,
           "hd_other_logo_svg": "",
           "main_menu_store": "main-menu",
