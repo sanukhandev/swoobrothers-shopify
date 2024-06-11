@@ -84,8 +84,10 @@
     "16399898238123fb1d": {
       "type": "section-banner-v8",
       "settings": {
-        "title_banner2": "See what’s new with up to 50% off online and in stores...",
-        "sub_title2": "Shop the latest fashion online at Nicebeats and discover new favourites in women’s clothing. Find everything from casual day dresses to sharp office wear. We have jeans in every fit, premium quality items and the latest fashion essentials. Check out our Conscious collection made out of more sustainable materials, we bring you women’s fashion in a more sustainable way",
+        "img_banner1": "shopify:\/\/shop_images\/558x651_copy.jpg",
+        "img_banner2": "shopify:\/\/shop_images\/680x570_copy.jpg",
+        "title_banner2": "Elevate Your Everyday Style | Explore our latest collections",
+        "sub_title2": "Swoo Brothers, your one-stop shop for curated collections of men's and women's fashion! Established in 2022, we bring over 20 years of experience in retail to curate a collection of clothing that empowers you to create lasting impressions",
         "btn_banner2": "Read more",
         "url_banner2": "shopify:\/\/collections\/all",
         "margin_top": "",
