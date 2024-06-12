@@ -239,15 +239,14 @@
         "margin_bottom": ""
       }
     },
-    "1640164168ccbe6a49": {
-      "type": "section-instagram-v3",
+    "section_instagram_v2_b8Jd4n": {
+      "type": "section-instagram-v2",
       "settings": {
-        "title_content": "Instagram Shop",
-        "sub_title": "Shop the latest fashion online and discover new favourites clothing.",
-        "ins_userid": "swoobrothersofficial",
-        "ins_access_token": "IGQWRNUUc2NzVkLWh4bDBvU052ZAUJjRy0zSjhadkd0anNiaWhxbUwxZAUpUWnJKRWZAXTEVFVTY4Q3N4T0RZAa3g3aVhPVmlYM2dHS2JlcEw4VDNrekEyZAjQ1QUpQQUtERDFWNjhDaFIzQXkyTFZAESGdyVDZAUMVJsc0kZD",
-        "ins_limit_number": "10",
+        "section_title_big": "Instagram Shop",
         "item_icon": "fa fa-instagram",
+        "ins_userid": "swoobrothersofficial",
+        "ins_access_token": "IGQWRPSEN4U1ZAfUndNWHBiVVFqV0RONTdENGNwa3ljemNrUzc1WnJvTzFLcXJFdGktZAjNhTGw0LUVRNTVwVFd4X2N0Ulh5Q0d5MmhVQTBLcnoyUkQwUDA3aXNfemU1US1QdGlhdEstM3R3cDBZAck9YcVIxZA2QwODQZD",
+        "ins_limit_number": "10",
         "margin_top": "",
         "margin_bottom": ""
       }
@@ -260,6 +259,6 @@
     "163711855463067829",
     "16371226032dd18206",
     "1637131195fe87c43d",
-    "1640164168ccbe6a49"
+    "section_instagram_v2_b8Jd4n"
   ]
 }
