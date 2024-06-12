@@ -69,7 +69,7 @@
     "hd_icon_cart_mb_svg": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 400 400\" height=\"400\" width=\"400\" id=\"svg2\" version=\"1.1\" xmlns:dc=\"http:\/\/purl.org\/dc\/elements\/1.1\/\" xmlns:cc=\"http:\/\/creativecommons.org\/ns#\" xmlns:rdf=\"http:\/\/www.w3.org\/1999\/02\/22-rdf-syntax-ns#\" xmlns:svg=\"http:\/\/www.w3.org\/2000\/svg\" xml:space=\"preserve\"><metadata id=\"metadata8\"><rdf><work rdf:about=\"\"><format>image\/svg+xml<\/format><type rdf:resource=\"http:\/\/purl.org\/dc\/dcmitype\/StillImage\"><\/type><\/work><\/rdf><\/metadata><defs id=\"defs6\"><\/defs><g transform=\"matrix(1.3333333,0,0,-1.3333333,0,400)\" id=\"g10\"><g transform=\"scale(0.1)\" id=\"g12\"><path id=\"path14\" style=\"fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"M 2565.21,2412.71 H 450.992 V 0 H 2565.21 V 2412.71 Z M 2366.79,2214.29 V 198.43 H 649.418 V 2214.29 H 2366.79\"><\/path><path id=\"path16\" style=\"fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 1508.11,2990 h -0.01 c -361.22,0 -654.037,-292.82 -654.037,-654.04 V 2216.92 H 2162.14 v 119.04 c 0,361.22 -292.82,654.04 -654.03,654.04 z m 0,-198.43 c 224.16,0 411.02,-162.7 448.69,-376.23 h -897.39 c 37.66,213.53 224.53,376.23 448.7,376.23\"><\/path><path id=\"path18\" style=\"fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 1946.24,1868.17 h -876.27 v 169.54 h 876.27 v -169.54\"><\/path><\/g><\/g><\/svg>",
     "logo_mobile": "shopify:\/\/shop_images\/Swoo_Brothers_Logo_wide_black_f65d21df-25f7-435c-849f-56b6f9919721.png",
     "logo_svgmobile": "",
-    "mobile_logo_maxwidth": 70,
+    "mobile_logo_maxwidth": 150,
     "main_menu_store_mb": "main-menu",
     "hdv_color_text": "#000000",
     "hdv_color_text_hover": "#ff4040",
