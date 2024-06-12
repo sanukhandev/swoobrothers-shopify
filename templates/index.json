@@ -92,6 +92,14 @@
             "brand_url": "shopify:\/\/collections\/casual-shirts"
           }
         },
+        "colection_C7QYEz": {
+          "type": "colection",
+          "settings": {
+            "brand_img": "shopify:\/\/shop_images\/Women_Footwear.jpg",
+            "title_collection": "Women Footwear",
+            "brand_url": "shopify:\/\/collections\/women-footwear"
+          }
+        },
         "colection_UrXgQW": {
           "type": "colection",
           "settings": {
@@ -132,14 +140,6 @@
             "brand_url": "shopify:\/\/collections\/mens-sneakers-shoes"
           }
         },
-        "colection_C7QYEz": {
-          "type": "colection",
-          "settings": {
-            "brand_img": "shopify:\/\/shop_images\/Women_Footwear.jpg",
-            "title_collection": "Women Footwear",
-            "brand_url": "shopify:\/\/collections\/women-footwear"
-          }
-        },
         "colection_qDnqNp": {
           "type": "colection",
           "settings": {
@@ -157,12 +157,12 @@
       },
       "block_order": [
         "colection_L6m9YJ",
+        "colection_C7QYEz",
         "colection_UrXgQW",
         "colection_xrEibC",
         "colection_DNmTQa",
         "colection_bhm8qz",
         "colection_jUffPm",
-        "colection_C7QYEz",
         "colection_qDnqNp",
         "colection_FrtacU"
       ],
@@ -195,7 +195,7 @@
         "title_heading": "Shop These Looks",
         "color_title": "#222222",
         "sub_heading": "Shop the latest fashion online and discover new favourites clothing.",
-        "select_collection": "accessories",
+        "select_collection": "all-products",
         "products_limit": 8,
         "buttom_name": "Load More",
         "button_name_url": "shopify:\/\/collections\/accessories",
