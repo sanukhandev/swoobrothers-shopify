@@ -115,11 +115,12 @@
         "margin_bottom": "",
         "select_pos": "center",
         "button_banner": "SHOP NOW",
-        "color_btn": "#ffffff",
-        "bg_btn": "#000000",
+        "color_btn": "#000000",
+        "bg_btn": "#ffffff",
         "color_btn_hover": "#ffffff",
-        "bg_btn_hover": "#ff4040",
-        "url_button": "shopify:\/\/collections\/all"
+        "bg_btn_hover": "#969696",
+        "url_button": "shopify:\/\/collections\/all",
+        "img_banner": "shopify:\/\/shop_images\/Home_page_last_block.jpg"
       }
     },
     "1637131195fe87c43d": {
