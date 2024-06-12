@@ -135,8 +135,9 @@
         "colection_C7QYEz": {
           "type": "colection",
           "settings": {
-            "title_collection": "New Collection",
-            "brand_url": "shopify:\/\/collections\/all"
+            "brand_img": "shopify:\/\/shop_images\/Women_Footwear.jpg",
+            "title_collection": "Women Footwear",
+            "brand_url": "shopify:\/\/collections\/women-footwear"
           }
         },
         "colection_qDnqNp": {
