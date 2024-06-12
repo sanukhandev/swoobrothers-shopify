@@ -143,6 +143,9 @@
         "colection_C7QYEz",
         "colection_FrtacU"
       ],
+      "custom_css": [
+
+      ],
       "settings": {
         "title_heading": "Visit Our Store",
         "color_title": "#000",
@@ -169,7 +172,7 @@
         "title_heading": "Shop These Looks",
         "color_title": "#222222",
         "sub_heading": "Shop the latest fashion online and discover new favourites clothing.",
-        "select_collection": "accessories",
+        "select_collection": "mens-2-piece-outfit",
         "products_limit": 8,
         "buttom_name": "Load More",
         "button_name_url": "shopify:\/\/collections\/accessories",
