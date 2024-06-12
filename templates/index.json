@@ -143,8 +143,9 @@
         "colection_qDnqNp": {
           "type": "colection",
           "settings": {
-            "title_collection": "New Collection",
-            "brand_url": "shopify:\/\/collections\/all"
+            "brand_img": "shopify:\/\/shop_images\/Panties.jpg",
+            "title_collection": "Panties",
+            "brand_url": "shopify:\/\/collections\/panties"
           }
         },
         "colection_FrtacU": {
