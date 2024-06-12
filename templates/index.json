@@ -111,8 +111,9 @@
         "colection_DNmTQa": {
           "type": "colection",
           "settings": {
-            "title_collection": "New Collection",
-            "brand_url": "shopify:\/\/collections\/all"
+            "brand_img": "shopify:\/\/shop_images\/Sunglasses.jpg",
+            "title_collection": "Sunglasses",
+            "brand_url": "shopify:\/\/collections\/sunglasses"
           }
         },
         "colection_bhm8qz": {
