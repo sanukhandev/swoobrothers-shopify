@@ -3980,7 +3980,7 @@
           "hd_other_logo_maxwidth": 170,
           "hd_other_logo_svg": "",
           "main_menu_store": "main-menu",
-          "enable_multi_lang": true,
+          "enable_multi_lang": false,
           "hd_multi_lang_menu": "",
           "enable_currency": true,
           "enable_social": true,
