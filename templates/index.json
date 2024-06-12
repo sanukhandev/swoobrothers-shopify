@@ -119,8 +119,9 @@
         "colection_bhm8qz": {
           "type": "colection",
           "settings": {
-            "title_collection": "New Collection",
-            "brand_url": "shopify:\/\/collections\/all"
+            "brand_img": "shopify:\/\/shop_images\/Cotton_Pants.jpg",
+            "title_collection": "Cotton Pants",
+            "brand_url": "shopify:\/\/collections\/cotton-pants"
           }
         },
         "colection_jUffPm": {
