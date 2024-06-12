@@ -241,6 +241,7 @@
     },
     "section_instagram_v2_b8Jd4n": {
       "type": "section-instagram-v2",
+      "disabled": true,
       "settings": {
         "section_title_big": "Instagram Shop",
         "item_icon": "fa fa-instagram",
