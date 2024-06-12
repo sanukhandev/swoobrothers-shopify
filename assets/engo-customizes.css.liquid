@@ -29638,12 +29638,17 @@ a.link_active{
   color: #a9b1bb
 }
 
+
 .section-collection-v1 {
-  transition: all .3s ease
+transition: all .3s ease
+    display: flex;
+    justify-content: center; /* Centers the child elements horizontally */
+    align-items: center;    /* Centers the child elements vertically if there's a height set */
+    flex-direction: column; /* Ensures elements stack vertically */
 }
 
 .section-collection-v1 .title_heading {
-  margin: 0px 0px 27px 38%;
+ margin: 0 0 27px 0; 
 }
 
 .section-collection-v1 .col-item {
