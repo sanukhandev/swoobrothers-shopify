@@ -103,8 +103,9 @@
         "colection_xrEibC": {
           "type": "colection",
           "settings": {
-            "title_collection": "New Collection",
-            "brand_url": "shopify:\/\/collections\/all"
+            "brand_img": "shopify:\/\/shop_images\/Oversize_Tshirt.jpg",
+            "title_collection": "Oversize TShirts",
+            "brand_url": "shopify:\/\/collections\/oversize-t-shirt"
           }
         },
         "colection_DNmTQa": {
