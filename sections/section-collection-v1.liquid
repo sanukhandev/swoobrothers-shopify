@@ -1,36 +1,52 @@
-<div data-section-id="{{ section.id }}" data-section-type="section-collection-v1" style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %} {% if section.settings.sections_layout == "dark" %}background: {{section.settings.sections_bg_color}};{% endif %}">
+<div
+  data-section-id="{{ section.id }}"
+  data-section-type="section-collection-v1"
+  style="{% if section.settings.margin_top != blank %}margin-top: {{section.settings.margin_top}}px;{%endif%} {% if section.settings.margin_bottom != blank %}margin-bottom: {{section.settings.margin_bottom}}px;{% endif %} {% if section.settings.sections_layout == "dark" %}background: {{section.settings.sections_bg_color}};{% endif %}"
+>
   <div class="section-collection-v1 mt-all">
     <div class="container container-v2">
       {% if section.settings.title_heading != blank %}
-      <h3 class="title_heading text-center" style="color: {{section.settings.color_title}}">{{section.settings.title_heading}}ss</h3>
+        <h3 class="title_heading text-center" style="color: {{section.settings.color_title}}">
+          {{ section.settings.title_heading }}
+        </h3>
       {% endif %}
       <div class="row no-gutters js-collection-v1">
         {% if section.blocks.size > 0 %}
-        {% for block in section.blocks %}
-        {% if block.type == 'colection' %}
-        <div class="col-lg-4 col-md-4 col-sm-6 col-12 col-item">
-          <div class="item">
-            <div class="box-img">
-              <a href="{{block.settings.brand_url}}" title="{{block.settings.title_collection}}">
-                {% if block.settings.brand_img != blank %}
-                <img data-src="{{block.settings.brand_img | img_url:'master'}}" class="lazyload img-fluid w-100" alt="_img_collection">
-                {% else %}
-                <img data-src="//via.placeholder.com/456x456" class="lazyload img-fluid w-100" alt="_img_collection">
-                {% endif %}
-              </a>
-            </div>
-            <div class="category-info">
-              <div class="box-info">
-                {% if block.settings.title_collection != blank %}
-                <a href="{{block.settings.brand_url}}" class="title-collection">{{block.settings.title_collection}}</a>
-                {% endif %}
+          {% for block in section.blocks %}
+            {% if block.type == 'colection' %}
+              <div class="col-lg-4 col-md-4 col-sm-6 col-12 col-item">
+                <div class="item">
+                  <div class="box-img">
+                    <a href="{{block.settings.brand_url}}" title="{{block.settings.title_collection}}">
+                      {% if block.settings.brand_img != blank %}
+                        <img
+                          data-src="{{block.settings.brand_img | img_url:'master'}}"
+                          class="lazyload img-fluid w-100"
+                          alt="_img_collection"
+                        >
+                      {% else %}
+                        <img
+                          data-src="//via.placeholder.com/456x456"
+                          class="lazyload img-fluid w-100"
+                          alt="_img_collection"
+                        >
+                      {% endif %}
+                    </a>
+                  </div>
+                  <div class="category-info">
+                    <div class="box-info">
+                      {% if block.settings.title_collection != blank %}
+                        <a href="{{block.settings.brand_url}}" class="title-collection">
+                          {{- block.settings.title_collection -}}
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
+            {% endif %}
+          {% endfor %}
         {% endif %}
-        {% endfor %}
-        {% endif %} 
       </div>
     </div>
   </div>
@@ -147,7 +163,6 @@
   ]
 }
 {% endschema %}
-
 
 {% stylesheet %}
 {% endstylesheet %}
