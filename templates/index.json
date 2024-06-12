@@ -139,6 +139,13 @@
             "brand_url": "shopify:\/\/collections\/all"
           }
         },
+        "colection_qDnqNp": {
+          "type": "colection",
+          "settings": {
+            "title_collection": "New Collection",
+            "brand_url": "shopify:\/\/collections\/all"
+          }
+        },
         "colection_FrtacU": {
           "type": "colection",
           "settings": {
@@ -155,6 +162,7 @@
         "colection_bhm8qz",
         "colection_jUffPm",
         "colection_C7QYEz",
+        "colection_qDnqNp",
         "colection_FrtacU"
       ],
       "custom_css": [
