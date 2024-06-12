@@ -95,8 +95,9 @@
         "colection_UrXgQW": {
           "type": "colection",
           "settings": {
-            "title_collection": "New Collection",
-            "brand_url": "shopify:\/\/collections\/all"
+            "brand_img": "shopify:\/\/shop_images\/T_Shirts.jpg",
+            "title_collection": "T-Shirts",
+            "brand_url": "shopify:\/\/collections\/t-shirts"
           }
         },
         "colection_xrEibC": {
