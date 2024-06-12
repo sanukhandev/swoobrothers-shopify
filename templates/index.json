@@ -127,8 +127,9 @@
         "colection_jUffPm": {
           "type": "colection",
           "settings": {
-            "title_collection": "New Collection",
-            "brand_url": "shopify:\/\/collections\/all"
+            "brand_img": "shopify:\/\/shop_images\/Sneakers.jpg",
+            "title_collection": "Men's Sneakers",
+            "brand_url": "shopify:\/\/collections\/mens-sneakers-shoes"
           }
         },
         "colection_C7QYEz": {
