@@ -81,6 +81,75 @@
         "margin_bottom": ""
       }
     },
+    "section_collection_v1_KLLVnM": {
+      "type": "section-collection-v1",
+      "blocks": {
+        "colection_L6m9YJ": {
+          "type": "colection",
+          "settings": {
+            "title_collection": "New Collection",
+            "brand_url": "shopify:\/\/collections\/all"
+          }
+        },
+        "colection_xrEibC": {
+          "type": "colection",
+          "settings": {
+            "title_collection": "New Collection",
+            "brand_url": "shopify:\/\/collections\/all"
+          }
+        },
+        "colection_DNmTQa": {
+          "type": "colection",
+          "settings": {
+            "title_collection": "New Collection",
+            "brand_url": "shopify:\/\/collections\/all"
+          }
+        },
+        "colection_bhm8qz": {
+          "type": "colection",
+          "settings": {
+            "title_collection": "New Collection",
+            "brand_url": "shopify:\/\/collections\/all"
+          }
+        },
+        "colection_jUffPm": {
+          "type": "colection",
+          "settings": {
+            "title_collection": "New Collection",
+            "brand_url": "shopify:\/\/collections\/all"
+          }
+        },
+        "colection_C7QYEz": {
+          "type": "colection",
+          "settings": {
+            "title_collection": "New Collection",
+            "brand_url": "shopify:\/\/collections\/all"
+          }
+        },
+        "colection_FrtacU": {
+          "type": "colection",
+          "settings": {
+            "title_collection": "New Collection",
+            "brand_url": "shopify:\/\/collections\/all"
+          }
+        }
+      },
+      "block_order": [
+        "colection_L6m9YJ",
+        "colection_xrEibC",
+        "colection_DNmTQa",
+        "colection_bhm8qz",
+        "colection_jUffPm",
+        "colection_C7QYEz",
+        "colection_FrtacU"
+      ],
+      "settings": {
+        "title_heading": "Visit Our Store",
+        "color_title": "#000",
+        "margin_top": "",
+        "margin_bottom": ""
+      }
+    },
     "16399898238123fb1d": {
       "type": "section-banner-v8",
       "settings": {
@@ -150,6 +219,7 @@
   },
   "order": [
     "163711799670793154",
+    "section_collection_v1_KLLVnM",
     "16399898238123fb1d",
     "163711855463067829",
     "16371226032dd18206",
