@@ -87,6 +87,14 @@
         "colection_L6m9YJ": {
           "type": "colection",
           "settings": {
+            "brand_img": "shopify:\/\/shop_images\/Shirts.jpg",
+            "title_collection": "New Collection",
+            "brand_url": "shopify:\/\/collections\/all"
+          }
+        },
+        "colection_UrXgQW": {
+          "type": "colection",
+          "settings": {
             "title_collection": "New Collection",
             "brand_url": "shopify:\/\/collections\/all"
           }
@@ -136,6 +144,7 @@
       },
       "block_order": [
         "colection_L6m9YJ",
+        "colection_UrXgQW",
         "colection_xrEibC",
         "colection_DNmTQa",
         "colection_bhm8qz",
@@ -148,7 +157,7 @@
       ],
       "settings": {
         "title_heading": "Visit Our Store",
-        "color_title": "#000",
+        "color_title": "#000000",
         "margin_top": "",
         "margin_bottom": ""
       }
@@ -172,7 +181,7 @@
         "title_heading": "Shop These Looks",
         "color_title": "#222222",
         "sub_heading": "Shop the latest fashion online and discover new favourites clothing.",
-        "select_collection": "mens-2-piece-outfit",
+        "select_collection": "accessories",
         "products_limit": 8,
         "buttom_name": "Load More",
         "button_name_url": "shopify:\/\/collections\/accessories",
