@@ -67,7 +67,7 @@
     "hdv_color_linkchildren": "#000000",
     "hdv_color_linklv2": "#969696",
     "bg_color_menu_hd": "#fff",
-    "apmenuitem_enable_1": false,
+    "apmenuitem_enable_1": true,
     "apmenuitem_title_1": "home",
     "apmenuitem_fullwidth_1": true,
     "apmenuitem_width_1": "900",
