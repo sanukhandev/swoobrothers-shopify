@@ -3807,7 +3807,7 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "select_fts": "footer_v6",
+          "select_fts": "footer_v1",
           "ft_home_bg_footer": "#ffffff",
           "ft_home_color_heading": "#000000",
           "ft_home_color_text": "#000000",
