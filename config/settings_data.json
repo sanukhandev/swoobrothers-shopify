@@ -3961,7 +3961,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "select_hds": "header_v1",
+          "select_hds": "header_v6",
           "hd_home_color_text": "#111111",
           "hd_home_enable_transparents": false,
           "hd_home_bg_header_normal": "#ffffff",
