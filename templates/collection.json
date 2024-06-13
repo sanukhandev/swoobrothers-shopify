@@ -4,7 +4,7 @@
       "type": "collection-template",
       "settings": {
         "select_style_bread": "style_6",
-        "ena_bg_img": false,
+        "ena_bg_img": true,
         "bg_breadcrumb": "shopify:\/\/shop_images\/Slider_3d_copy.jpg",
         "bg_color_breadcrumb": "#969696",
         "color_breadcrumb": "#ffffff",
