@@ -3975,7 +3975,7 @@
           "hd_other_enable_transparents": false,
           "hd_other_bg_header_normal": "#ffffff",
           "hd_other_bg_header_opacity": 1,
-          "enable_sticky_hd_other": false,
+          "enable_sticky_hd_other": true,
           "hd_other_logo": "shopify:\/\/shop_images\/Swoo_Brothers_Logo_wide_black_f65d21df-25f7-435c-849f-56b6f9919721.png",
           "hd_other_logo_maxwidth": 170,
           "hd_other_logo_svg": "",
