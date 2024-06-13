@@ -3,7 +3,7 @@
     "collection_template": {
       "type": "collection-template",
       "settings": {
-        "select_style_bread": "style_2",
+        "select_style_bread": "style_6",
         "ena_bg_img": true,
         "bg_color_breadcrumb": "#ffffff",
         "color_breadcrumb": "#ffffff",
