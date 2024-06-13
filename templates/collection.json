@@ -7,7 +7,7 @@
         "ena_bg_img": true,
         "bg_color_breadcrumb": "#ffffff",
         "color_breadcrumb": "#ffffff",
-        "collection_layout": "infinity_scroll",
+        "collection_layout": "sidebar",
         "prod_per_page": 15,
         "prod_layout": "prod_grid",
         "prod_per_row": "prod_col_3",
