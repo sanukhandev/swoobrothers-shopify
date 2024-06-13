@@ -3807,11 +3807,11 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "select_fts": "footer_v1",
+          "select_fts": "footer_v6",
           "ft_home_bg_footer": "#ffffff",
           "ft_home_color_heading": "#000000",
           "ft_home_color_text": "#000000",
-          "select_fts_all": "footer_ver2",
+          "select_fts_all": "footer_ver6",
           "ft_other_bg_footer": "#ffffff",
           "ft_other_color_heading": "#111111",
           "ft_other_color_text": "#000000"
