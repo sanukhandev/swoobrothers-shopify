@@ -24,7 +24,7 @@
         "title_heading": "BEST SELLERS",
         "select_collection": "all-products",
         "products_limit": 10,
-        "ena_filter": false,
+        "ena_filter": true,
         "ena_filter2": true
       }
     }
