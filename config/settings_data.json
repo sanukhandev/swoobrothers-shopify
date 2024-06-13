@@ -3961,7 +3961,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "select_hds": "header_v6",
+          "select_hds": "header_v1",
           "hd_home_color_text": "#111111",
           "hd_home_enable_transparents": true,
           "hd_home_bg_header_normal": "#ffffff",
@@ -3981,7 +3981,7 @@
           "hd_other_logo_svg": "",
           "main_menu_store": "new-menu-header",
           "enable_multi_lang": false,
-          "hd_multi_lang_menu": "",
+          "hd_multi_lang_menu": "new-menu-header",
           "enable_currency": true,
           "enable_social": true,
           "icon_sc_hd_1": "fb",
