@@ -15,7 +15,7 @@
         "filter_layout": "filter_push_left",
         "sidebar_layout": "sidebar_left",
         "ena_sticky_sidebar": true,
-        "ena_banner_mordern": true,
+        "ena_banner_mordern": false,
         "big_title": "",
         "mini_title": "",
         "btn_title": "",
