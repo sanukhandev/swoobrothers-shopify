@@ -4,9 +4,9 @@
       "type": "collection-template",
       "settings": {
         "select_style_bread": "style_6",
-        "ena_bg_img": true,
+        "ena_bg_img": false,
         "bg_breadcrumb": "shopify:\/\/shop_images\/Untitled-1d.jpg",
-        "bg_color_breadcrumb": "#ffffff",
+        "bg_color_breadcrumb": "#969696",
         "color_breadcrumb": "#ffffff",
         "collection_layout": "sidebar",
         "prod_per_page": 15,
