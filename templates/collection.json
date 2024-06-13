@@ -7,10 +7,10 @@
         "ena_bg_img": true,
         "bg_color_breadcrumb": "#ffffff",
         "color_breadcrumb": "#ffffff",
-        "collection_layout": "sidebar",
-        "prod_per_page": 13,
+        "collection_layout": "infinity_scroll",
+        "prod_per_page": 15,
         "prod_layout": "prod_grid",
-        "prod_per_row": "prod_col_4",
+        "prod_per_row": "prod_col_3",
         "filter_layout": "filter_push_left",
         "sidebar_layout": "sidebar_left",
         "ena_sticky_sidebar": true,
@@ -23,7 +23,7 @@
         "ena_best_seller": true,
         "title_heading": "BEST SELLERS",
         "select_collection": "all-products",
-        "products_limit": 10,
+        "products_limit": 12,
         "ena_filter": true,
         "ena_filter2": true
       }
