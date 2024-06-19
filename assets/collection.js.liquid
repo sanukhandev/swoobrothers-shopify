@@ -208,7 +208,7 @@
     filterMapData: function(data) {
 
         var currentList = $(".grid-uniform");
-alert('hiii');
+alert(currentList);
         var productList = $(data).find(".grid-uniform");
 
         currentList.replaceWith(productList);
@@ -310,7 +310,6 @@ alert('hiii');
         },
 
         success: function(data) {
-alert('hlooo');
           collection.filterMapData(data);
 
           collection.filterMapClear();
