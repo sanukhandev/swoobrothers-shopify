@@ -312,9 +312,9 @@
 
         success: function(data) {
           
-          collection.filterMapData(data);
+          var new = collection.filterMapData(data);
          
-          alert(collection.filterMapData(data));
+          alert(new);
           
           collection.filterMapClear();
           hidePopup('.loading');
