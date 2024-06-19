@@ -311,7 +311,7 @@
         },
 
         success: function(data) {
-          console.log('Success response length:', data.length);
+          
           collection.filterMapData(data);
           collection.filterMapClear();
           hidePopup('.loading');
