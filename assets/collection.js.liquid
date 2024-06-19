@@ -5,13 +5,13 @@
   });
 
   if ($(".engoj-collection-sidebar")) {
+    alert('hi');
     History.Adapter.bind(window, 'statechange', function() {
       var State = History.getState();
       if (!collection.fillterClick) {
         collection.filterParams();
         var newurl = collection.filterCreateUrl();
         collection.filterGetContent(newurl);
-        console.log(newurl);
         collection.resetFilter();
       }
       collection.fillterClick = false;
