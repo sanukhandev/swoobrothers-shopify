@@ -309,13 +309,10 @@
         beforeSend: function() {
           showPopup('.loading');
         },
-
+console.log('URL:', newurl);
         success: function(data) {
           
-          var new = collection.filterMapData(data);
-         
-          alert(new);
-          
+          collection.filterMapData(data);
           collection.filterMapClear();
           hidePopup('.loading');
           hidePopup('.filter-to-left , .js-bg');
