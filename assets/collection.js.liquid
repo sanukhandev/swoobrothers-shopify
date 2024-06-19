@@ -302,14 +302,14 @@
     },
 
     filterGetContent: function(newurl) {
-
+console.log('URL:', newurl);
       $.ajax({
         type: 'get',
         url: newurl,
         beforeSend: function() {
           showPopup('.loading');
         },
-console.log('URL:', newurl);
+
         success: function(data) {
           
           collection.filterMapData(data);
