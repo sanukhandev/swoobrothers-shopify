@@ -311,8 +311,10 @@
         },
 
         success: function(data) {
-          alert('success');
+          
           collection.filterMapData(data);
+         
+          alert(collection.filterMapData(data).length);
           
           collection.filterMapClear();
           hidePopup('.loading');
