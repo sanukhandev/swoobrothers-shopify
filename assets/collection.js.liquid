@@ -207,12 +207,15 @@
 
     filterMapData: function(data) {
 
-        var currentList = $(".grid-uniform");
         //var currentList = $(".collection_prod");
+        var currentList = $(".grid-uniform");
         var productList = $(data).find(".grid-uniform");
-        console.log($(data).find(".filter-blocks"));
         
-        currentList.replaceWith(productList);
+      
+        var new = currentList.replaceWith(productList);
+
+        console.log(new);
+      
 
         //replace paging
         if ($(".pagination").length > 0) {
