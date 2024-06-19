@@ -7,14 +7,13 @@
   if ($(".engoj-collection-sidebar")) {
     History.Adapter.bind(window, 'statechange', function() {
       var State = History.getState();
-      alert(state);
       if (!collection.fillterClick) {
         collection.filterParams();
         var newurl = collection.filterCreateUrl();
         collection.filterGetContent(newurl);
         collection.resetFilter();
       }
-      collection.fillterClick = false;
+      collection.fillterClick = true;
     });
   }
 
