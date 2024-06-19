@@ -210,7 +210,7 @@
         //var currentList = $(".collection_prod");
         var currentList = $(".grid-uniform");
         var productList = $(data).find(".grid-uniform");
-        console.log($(data).find(".filter-blocks"));
+      
         
         currentList.replaceWith(productList);
 
@@ -311,6 +311,7 @@
         },
 
         success: function(data) {
+          console.log(data);
           collection.filterMapData(data);
 
           collection.filterMapClear();
