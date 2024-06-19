@@ -302,7 +302,7 @@
     },
 
     filterGetContent: function(newurl) {
-console.log('URL:', newurl);
+
       $.ajax({
         type: 'get',
         url: newurl,
@@ -311,7 +311,7 @@ console.log('URL:', newurl);
         },
 
         success: function(data) {
-          
+          console.log('Success response:', data);
           collection.filterMapData(data);
           collection.filterMapClear();
           hidePopup('.loading');
