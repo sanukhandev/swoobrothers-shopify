@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "show_multiple_currencies": true,
@@ -6206,7 +6215,15 @@
       "1623030751ead92bdd",
       "16173320280a632935",
       "162373083198e445e0"
-    ]
+    ],
+    "blocks": {
+      "1804893150726543839": {
+        "type": "shopify:\/\/apps\/nova-multi-currency-converter\/blocks\/app-embed\/a5be3c35-cbd0-46a1-ac3a-1ace57a9c1ce",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "presets": {
     "Home 1": {
