@@ -1096,7 +1096,7 @@
     "icon_popup4_url": "shopify:\/\/collections\/all",
     "icon_popup5": "ti-tumblr-alt",
     "icon_popup5_url": "shopify:\/\/collections\/all",
-    "enable_preloader": false,
+    "enable_preloader": true,
     "bg_color": "#000000",
     "icon_color": "#ffffff",
     "hdv1_layout": "white",
