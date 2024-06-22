@@ -280,10 +280,13 @@
     },
 
     filterCreateUrl: function(baseLink) {
-       .replace(/%2B/g, '+');
-       .replace(/constraint=[^&]*/, function(match) {
-        return match.replace(/[^\d-]/g, '');
+      
+      var newQuery = $.param(Shopify.queryParams)
+      .replace(/%2B/g, '+')
+      .replace(/constraint=[^&]*/, function(match) {
+      return match.replace(/[^\d-]/g, '');
     });
+      
       if (baseLink) {
 
         if (newQuery != "")
