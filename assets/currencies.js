@@ -1,6 +1,7 @@
 // This JavaScript file should be included in your theme
 
 document.addEventListener('DOMContentLoaded', function() {
+  alert('hi');
     // Check if the multi-currency feature is enabled
     if (typeof Shopify === 'undefined' || !Shopify.shop_currency || !Currency) {
         return;
