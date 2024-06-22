@@ -280,14 +280,7 @@
     },
 
     filterCreateUrl: function(baseLink) {
-      
-     var newQuery = $.param(Shopify.queryParams)
-    .replace(/%2B/g, '+')
-    .replace(/constraint=[^&]*/, function(match) {
-      // Remove non-numeric characters except for the hyphen and remove any leading/trailing hyphens
-      return match.replace(/[^\d-]/g, '').replace(/^-+|-+$/g, '');
-    });
-      
+      var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
       if (baseLink) {
 
         if (newQuery != "")
