@@ -284,12 +284,8 @@
      var newQuery = $.param(Shopify.queryParams)
     .replace(/%2B/g, '+')
     .replace(/constraint=[^&]*/, function(match) {
-      // Extract the numerical range from the constraint parameter
-      var range = match.match(/(\d+)-(\d+)/);
-      if (range) {
-        return 'constraint=' + range[1] + '-' + range[2];
-      }
-      return match;
+      // Remove non-numeric characters except for the hyphen and remove any leading/trailing hyphens
+      return match.replace(/[^\d-]/g, '').replace(/^-+|-+$/g, '');
     });
       
       if (baseLink) {
