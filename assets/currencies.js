@@ -1,7 +1,7 @@
 // This JavaScript file should be included in your theme
 
 document.addEventListener('DOMContentLoaded', function() {
-  alert('hi');
+ 
     // Check if the multi-currency feature is enabled
     if (typeof Shopify === 'undefined' || !Shopify.shop_currency || !Currency) {
         return;
@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     Currency.format = Shopify.currency_format == "money_format" ? 'money_format' : 'money_with_currency_format';
 
     var shopCurrency = Shopify.shop_currency;
+
+   alert(shopCurrency);
 
     /* Sometimes merchants change their shop currency, let's tell our JavaScript file */
     Currency.moneyFormats[shopCurrency].money_with_currency_format = Shopify.money_with_currency_format;
