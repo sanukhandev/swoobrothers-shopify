@@ -4,8 +4,14 @@
 {{ "jquery.currencies.min.js" | asset_url | script_tag }}
 
 <script>
-// Pick your format here: money_format or money_with_currency_format
-Currency.format = '{{ settings.currency_format == "money_format" ? 'money_format' : 'money_with_currency_format' }}';
+
+// Pick your format here:
+// money_format or money_with_currency_format
+  {% if settings.currency_format == "money_format" %}
+  Currency.format = 'money_format';
+  {% else %}
+  Currency.format = 'money_with_currency_format';
+  {% endif %}
 
 var shopCurrency = '{{ shop.currency }}';
 
@@ -14,7 +20,8 @@ Currency.moneyFormats[shopCurrency].money_with_currency_format = {{ shop.money_w
 Currency.moneyFormats[shopCurrency].money_format = {{ shop.money_format | strip_html | json }};
 
 var cookieCurrency = Currency.cookie.read();
-
+console.log(cookieCurrency);
+console.log(shopCurrency);
 // Fix for customer account pages.
 jQuery('span.money span.money').each(function() {
   jQuery(this).parents('span.money').removeClass('money');
@@ -22,7 +29,7 @@ jQuery('span.money span.money').each(function() {
 
 // Saving the current price.
 jQuery('span.money').each(function() {
-  jQuery(this).attr('data-currency-' + shopCurrency, jQuery(this).html());
+  jQuery(this).attr('data-currency-{{ shop.currency }}', jQuery(this).html());
 });
 
 // Select all your currencies buttons.
@@ -33,7 +40,8 @@ if (cookieCurrency == null || cookieCurrency === shopCurrency) {
   buttons.removeClass('selected');
   jQuery('#currencies a[data-currency=' + shopCurrency + ']').addClass('selected');
   Currency.currentCurrency = shopCurrency;
-} else {
+}
+else {
   Currency.convertAll(shopCurrency, cookieCurrency);
   buttons.removeClass('selected');
   jQuery('#currencies a[data-currency=' + cookieCurrency + ']').addClass('selected');
@@ -43,15 +51,15 @@ if (cookieCurrency == null || cookieCurrency === shopCurrency) {
 buttons.click(function() {
   buttons.removeClass('selected');
   jQuery(this).addClass('selected');
-  var newCurrency = jQuery(this).attr('data-currency');
+  var newCurrency =  jQuery(this).attr('data-currency');
   Currency.convertAll(Currency.currentCurrency, newCurrency);
-  jQuery('.selected-currency').text(newCurrency);
-  Currency.cookie.write(newCurrency);
+  jQuery('.selected-currency').text(Currency.currentCurrency);
+  jQuery('.currency').click()
 });
 
 // For options.
 var original_selectCallback = window.selectCallback;
-window.selectCallback = function(variant, selector) {
+var selectCallback = function(variant, selector) {
   original_selectCallback(variant, selector);
   Currency.convertAll(shopCurrency, jQuery('#currencies a.selected').attr('data-currency'));
   jQuery('.selected-currency').text(Currency.currentCurrency);
@@ -63,6 +71,7 @@ $('body').on('ajaxCart.afterCartLoad', function(cart) {
 });
 
 jQuery('.selected-currency').text(Currency.currentCurrency);
+
 </script>
 
 {% endif %}
