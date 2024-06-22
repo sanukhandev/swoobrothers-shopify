@@ -1,11 +1,11 @@
 // This JavaScript file should be included in your theme
 
 document.addEventListener('DOMContentLoaded', function() {
- console.log('load');
+
     // Check if the multi-currency feature is enabled
-    if (typeof Shopify === 'undefined' || !Shopify.shop_currency || !Currency) {
-        return;
-    }
+    // if (typeof Shopify === 'undefined' || !Shopify.shop_currency || !Currency) {
+    //     return;
+    // }
 
     // Pick your format here: money_format or money_with_currency_format
     Currency.format = Shopify.currency_format == "money_format" ? 'money_format' : 'money_with_currency_format';
