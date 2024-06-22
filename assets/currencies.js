@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var shopCurrency = Shopify.shop_currency;
 
-   alert(shopCurrency);
+   console.log(shopCurrency);
+  console.log('loading');
 
     /* Sometimes merchants change their shop currency, let's tell our JavaScript file */
     Currency.moneyFormats[shopCurrency].money_with_currency_format = Shopify.money_with_currency_format;
