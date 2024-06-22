@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // Check if the multi-currency feature is enabled
-    if (typeof Shopify === 'undefined' || !Shopify.shop_currency ) {
+    if (typeof Shopify === 'undefined'  || !Currency) {
         return;
     }
 
