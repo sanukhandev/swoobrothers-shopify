@@ -294,6 +294,7 @@ filterCreateUrl: function(baseLink) {
       return baseLink;
     }
   }
+  // If baseLink is not provided, return the current pathname with dividedQuery
   return location.pathname + "?" + dividedQuery;
 }
 
