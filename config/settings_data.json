@@ -3991,7 +3991,7 @@
           "main_menu_store": "new-menu-header",
           "enable_multi_lang": false,
           "hd_multi_lang_menu": "",
-          "enable_currency": true,
+          "enable_currency": false,
           "enable_social": true,
           "icon_sc_hd_1": "fb",
           "url_sc_hd_1": "",
