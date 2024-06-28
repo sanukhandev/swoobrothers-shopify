@@ -281,6 +281,7 @@
 
     filterCreateUrl: function(baseLink) {
       var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
+      console.log(newQuery);
       if (baseLink) {
 
         if (newQuery != "")
