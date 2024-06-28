@@ -8,12 +8,12 @@
     {% for range in price_ranges %}
       {% if range != "" %}
         {% assign prices = range | split: " - " %}
-         {% assign min_price = prices[0] | times: 100 %}
+        {% assign min_price = prices[0] | times: 100 %}
         {% assign max_price = prices[1] | times: 100 %}
         <li class="cat-item">
-          <input type="checkbox" value="{{ prices[0] }}-{{ prices[1] }}" id="price-filter-{{ forloop.index }}">
-          <a href="javascript:void(0)" title="{{ range }}" class="price-filter" data-min="{{ prices[0] }}" data-max="{{ prices[1] }}">
-            {{ prices[0] | money }} - {{ prices[1] | money }}
+          <input type="checkbox" value="{{ min_price }}-{{ max_price }}" id="price-filter-{{ forloop.index }}">
+          <a href="javascript:void(0)" title="{{ min_price }} - {{ max_price }}" class="price-filter" data-min="{{ min_price }}" data-max="{{ max_price }}">
+            {{ min_price | money }} - {{ max_price | money }}
           </a>
         </li>
       {% endif %}
@@ -26,8 +26,8 @@
   document.querySelectorAll('.price-filter').forEach(function(filter) {
     filter.addEventListener('click', function(event) {
       event.preventDefault();
-      var minPrice = parseFloat(this.dataset.min);
-      var maxPrice = parseFloat(this.dataset.max);
+      var minPrice = parseFloat(this.dataset.min) / 100;
+      var maxPrice = parseFloat(this.dataset.max) / 100;
 
       // Implement your filtering logic here, for example:
       // Show/Hide products based on the minPrice and maxPrice
