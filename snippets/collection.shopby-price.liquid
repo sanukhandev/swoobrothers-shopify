@@ -4,12 +4,11 @@
   </div>
 
   {% assign price_ranges = "10 - 20,20 - 30,30 - 50,50 - 100,100 - 200" | split: "," %}
+  {% assign price_ranges = price_ranges * 100 %}
   <ul class="list-none list-price">
     {% for range in price_ranges %}
       {% if range != "" %}
         {% assign prices = range | split: " - " %}
-         {% assign min_price = prices[0] | times: 100 %}
-        {% assign max_price = prices[1] | times: 100 %}
         <li class="cat-item">
           <input type="checkbox" value="{{ prices[0] }}-{{ prices[1] }}" id="price-filter-{{ forloop.index }}">
           <a href="javascript:void(0)" title="{{ range }}" class="price-filter" data-min="{{ prices[0] }}" data-max="{{ prices[1] }}">
