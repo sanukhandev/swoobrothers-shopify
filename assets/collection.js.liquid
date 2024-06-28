@@ -279,23 +279,51 @@
 
     },
 
- filterCreateUrl: function(baseLink) {
-  var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
+filterCreateUrl: function(baseLink) {
+  Shopify.queryParams = Shopify.queryParams || {};
 
-  // Divide constraint values by 100
-  var dividedQuery = newQuery.replace(/constraint=(\d+)-(\d+)/g, function(match, min, max) {
-    return "constraint=" + (parseInt(min) / 100) + "-" + (parseInt(max) / 100);
+  // Fetch all checked price ranges
+  var checkedRanges = [];
+  $(".filter-price input:checked").each(function() {
+    var value = $(this).val();
+    if (value) {
+      checkedRanges.push(value);
+    }
   });
 
-  if (baseLink) {
-    if (dividedQuery !== "") {
-      return baseLink + "?" + dividedQuery;
-    } else {
-      return baseLink;
-    }
+  // Update Shopify.queryParams with selected price ranges
+  if (checkedRanges.length > 0) {
+    var constraintValues = checkedRanges.map(function(range) {
+      var prices = range.split('-');
+      var min = parseInt(prices[0]) / 100;
+      var max = parseInt(prices[1]) / 100;
+      return min + '-' + max;
+    });
+    Shopify.queryParams.constraint = constraintValues.join('+');
+  } else {
+    delete Shopify.queryParams.constraint;
   }
-  return location.pathname + "?" + dividedQuery;
+
+  // Convert the object to a query string
+  var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
+
+  // Construct the new URL
+  var newUrl = '';
+  if (baseLink) {
+    if (newQuery !== "") {
+      newUrl = baseLink + "?" + newQuery;
+    } else {
+      newUrl = baseLink;
+    }
+  } else {
+    newUrl = location.pathname + "?" + newQuery;
+  }
+
+  console.log("Generated URL:", newUrl); // Log the generated URL for debugging
+
+  return newUrl;
 },
+
 
     filterAjaxClick: function(baseLink) {
       delete Shopify.queryParams.page;
