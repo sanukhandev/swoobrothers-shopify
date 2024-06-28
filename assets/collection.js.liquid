@@ -282,7 +282,7 @@
  filterCreateUrl: function(baseLink) {
   var newQuery = $.param(Shopify.queryParams);
 //var newQuery ='';
-  var dividedQuery = newQuery, function(match, min, max) {
+  var dividedQuery = newQuery.replace(/constraint= /g, function(match, min, max) {
     return "constraint=" + (parseInt(min) / 100) + "-" + (parseInt(max) / 100);
   });
 
