@@ -1,7 +1,7 @@
 {%- if content_for_header contains '.mezereon' and shop.metafields.mezereon.status == 'enabled' -%}
 {%- if shop.metafields.mezereon.suggest == 'enabled' -%}
 <div id="mz-autocomplete">
-  <mz-autocomplete :delay="50" selector="input[name='q']" query-param="q" search-url="{{ routes.search_url | replace: "/search" , "/pages/search" }}"></mz-autocomplete>
+  <mz-autocomplete :delay="50" selector="input[name='q']" query-param="q" search-url="{{ routes.search_url | replace: "/search" , "/collections/all" }}"></mz-autocomplete>
 </div>
 {%- endif -%}
 
