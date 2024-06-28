@@ -8,12 +8,14 @@
     {% for range in price_ranges %}
       {% if range != "" %}
         {% assign prices = range | split: " - " %}
-        {% assign min_price = prices[0] %}
-        {% assign max_price = prices[1] %}
+        {% assign min_price_raw = prices[0] %}
+        {% assign max_price_raw = prices[1] %}
+        {% assign min_price = min_price_raw | times: 100 %}
+        {% assign max_price = max_price_raw | times: 100 %}
         <li class="cat-item">
           <input type="checkbox" value="{{ min_price }}-{{ max_price }}" id="price-filter-{{ forloop.index }}">
-          <a href="javascript:void(0)" title="{{ min_price }} - {{ max_price }}" class="price-filter" data-min="{{ min_price }}" data-max="{{ max_price }}">
-            {{ min_price }} - {{ max_price }}
+          <a href="javascript:void(0)" title="{{ min_price_raw }} - {{ max_price_raw }}" class="price-filter" data-min="{{ min_price }}" data-max="{{ max_price }}">
+            {{ min_price_raw }} - {{ max_price_raw }}
           </a>
         </li>
       {% endif %}
