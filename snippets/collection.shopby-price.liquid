@@ -4,7 +4,7 @@
   </div>
 
   {% assign price_ranges = "10 - 20,20 - 30,30 - 50,50 - 100,100 - 200" | split: "," %}
-
+  {% assign price_ranges = price_ranges*100 %}
   <ul class="list-none list-price">
     {% for range in price_ranges %}
       {% if range != "" %}
