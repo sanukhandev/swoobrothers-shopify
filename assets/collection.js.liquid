@@ -279,10 +279,10 @@
 
     },
 
-filterCreateUrl: function(baseLink) {
+ filterCreateUrl: function(baseLink) {
   var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
 
-  // Divide constraint values by 100 correctly for all occurrences
+  // Divide constraint values by 100
   var dividedQuery = newQuery.replace(/constraint=(\d+)-(\d+)/g, function(match, min, max) {
     return "constraint=" + (parseInt(min) / 100) + "-" + (parseInt(max) / 100);
   });
@@ -294,9 +294,8 @@ filterCreateUrl: function(baseLink) {
       return baseLink;
     }
   }
-  // If baseLink is not provided, return the current pathname with dividedQuery
   return location.pathname + "?" + dividedQuery;
-}
+},
 
     filterAjaxClick: function(baseLink) {
       delete Shopify.queryParams.page;
