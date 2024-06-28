@@ -293,7 +293,7 @@ filterCreateUrl: function(baseLink) {
 
   // Update Shopify.queryParams with selected price ranges
   if (checkedRanges.length > 0) {
-    Shopify.queryParams.constraint = checkedRanges.join('+');
+    Shopify.queryParams.constraint = checkedRanges.join(',');
   } else {
     delete Shopify.queryParams.constraint;
   }
