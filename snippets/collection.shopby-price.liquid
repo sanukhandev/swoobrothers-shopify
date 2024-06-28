@@ -23,23 +23,22 @@
 </section>
 
 <script>
-  document.querySelectorAll('.price-filter').forEach(function(filter) {
-    filter.addEventListener('click', function(event) {
-      event.preventDefault();
-      var minPrice = parseFloat(this.dataset.min) / 100;
-      var maxPrice = parseFloat(this.dataset.max) / 100;
+document.querySelectorAll('.price-filter').forEach(function(filter) {
+  filter.addEventListener('click', function(event) {
+    event.preventDefault();
+    var minPrice = parseFloat(this.dataset.min) / 100; // Ensure prices are divided by 100 correctly
+    var maxPrice = parseFloat(this.dataset.max) / 100;
 
-      // Implement your filtering logic here, for example:
-      // Show/Hide products based on the minPrice and maxPrice
-      var products = document.querySelectorAll('.product');
-      products.forEach(function(product) {
-        var productPrice = parseFloat(product.dataset.price);
-        if (productPrice >= minPrice && productPrice <= maxPrice) {
-          product.style.display = 'block';
-        } else {
-          product.style.display = 'none';
-        }
-      });
+    // Implement your filtering logic here:
+    var products = document.querySelectorAll('.product');
+    products.forEach(function(product) {
+      var productPrice = parseFloat(product.dataset.price) / 100; // Ensure product price is divided by 100
+      if (productPrice >= minPrice && productPrice <= maxPrice) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
     });
   });
+});
 </script>
