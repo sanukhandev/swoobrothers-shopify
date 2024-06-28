@@ -11,10 +11,10 @@
         {% assign min_price = prices[0] | times: 100 %}
         {% assign max_price = prices[1] | times: 100 %}
         <li class="cat-item">
-          <input type="checkbox" value="{{ min_price }}-{{ max_price }}" id="price-filter-{{ forloop.index }}">
-          <a href="javascript:void(0)" title="{{ min_price }} - {{ max_price }}" class="price-filter" data-min="{{ min_price }}" data-max="{{ max_price }}">
+          <input type="checkbox" value="{{ min_price }}-{{ max_price }}" id="price-filter-{{ forloop.index }}" class="price-filter">
+          <label for="price-filter-{{ forloop.index }}">
             {{ min_price | money }} - {{ max_price | money }}
-          </a>
+          </label>
         </li>
       {% endif %}
     {% endfor %}
@@ -22,9 +22,8 @@
   <!-- /.product-categories -->
 </section>
 
-
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   // Function to filter products based on selected checkboxes
   function filterProducts() {
     // Get all checkboxes
@@ -43,11 +42,13 @@
 
     // Show/Hide products based on filters
     products.forEach(function(product) {
-      let showProduct = filters.every(function(filter) {
-        return product.getAttribute('data-' + filter) !== null;
+      let productPrice = parseFloat(product.getAttribute('data-converted-price'));
+      let showProduct = filters.some(function(filter) {
+        let [min, max] = filter.split('-').map(Number);
+        return productPrice >= min && productPrice <= max;
       });
 
-      if (showProduct) {
+      if (showProduct || filters.length === 0) {
         product.style.display = 'block';
       } else {
         product.style.display = 'none';
@@ -63,25 +64,5 @@
 
   // Initial filter on page load
   filterProducts();
-});
-
-document.querySelectorAll('.price-filter').forEach(function(filter) {
-  filter.addEventListener('click', function(event) {
-    event.preventDefault();
-    var minPrice = parseFloat(this.dataset.min);
-    var maxPrice = parseFloat(this.dataset.max);
-
-    // Implement your filtering logic here, for example:
-    // Show/Hide products based on the minPrice and maxPrice
-    var products = document.querySelectorAll('.product');
-    products.forEach(function(product) {
-      var productPrice = parseFloat(product.dataset.convertedPrice);
-      if (productPrice >= minPrice && productPrice <= maxPrice) {
-        product.style.display = 'block';
-      } else {
-        product.style.display = 'none';
-      }
-    });
-  });
 });
 </script>
