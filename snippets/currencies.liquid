@@ -13,10 +13,9 @@
   Currency.format = 'money_with_currency_format';
   {% endif %}
 
-// var shopCurrency = '{{ shop.currency }}';
-var shopCurrency = 'INR';
+var shopCurrency = '{{ shop.currency }}';
 
-  console.log(shopCurrency,'storecurrency');
+  console.log(shopCurrency,'store');
 
 /* Sometimes merchants change their shop currency, let's tell our JavaScript file */
 Currency.moneyFormats[shopCurrency].money_with_currency_format = {{ shop.money_with_currency_format | strip_html | json }};
