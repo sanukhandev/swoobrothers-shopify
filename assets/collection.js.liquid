@@ -279,17 +279,37 @@
 
     },
 
-    filterCreateUrl: function(baseLink) {
-      var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
-      if (baseLink) {
+   filterCreateUrl: function(baseLink) {
+  Shopify.queryParams = Shopify.queryParams || {};
 
-        if (newQuery != "")
-          return baseLink + "?" + newQuery;
-        else
-          return baseLink;
-      }
-      return location.pathname + "?" + newQuery;
-    },
+  // Fetch all checked price ranges
+  var checkedRanges = [];
+  $(".filter-price input:checked").each(function() {
+    checkedRanges.push($(this).val());
+  });
+
+  // Update Shopify.queryParams with selected price ranges
+  if (checkedRanges.length > 0) {
+    Shopify.queryParams.price_range = checkedRanges.join('+');
+  } else {
+    delete Shopify.queryParams.price_range;
+  }
+
+  // Convert the object to a query string
+  var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
+
+  // Construct the new URL
+  if (baseLink) {
+    if (newQuery !== "") {
+      return baseLink + "?" + newQuery;
+    } else {
+      return baseLink;
+    }
+  } else {
+    return location.pathname + "?" + newQuery;
+  }
+},
+
 
     filterAjaxClick: function(baseLink) {
       delete Shopify.queryParams.page;
