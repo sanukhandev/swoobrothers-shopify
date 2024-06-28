@@ -26,8 +26,8 @@
   document.querySelectorAll('.price-filter').forEach(function(filter) {
     filter.addEventListener('click', function(event) {
       event.preventDefault();
-      var minPrice = parseFloat(this.dataset.min);
-      var maxPrice = parseFloat(this.dataset.max);
+      var minPrice = parseFloat(this.dataset.min) / 100;
+      var maxPrice = parseFloat(this.dataset.max) / 100;
 
       // Implement your filtering logic here, for example:
       // Show/Hide products based on the minPrice and maxPrice
