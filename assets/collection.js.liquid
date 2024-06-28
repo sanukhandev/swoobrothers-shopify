@@ -279,46 +279,17 @@
 
     },
 
-filterCreateUrl: function(baseLink) {
-  Shopify.queryParams = Shopify.queryParams || {};
+    filterCreateUrl: function(baseLink) {
+      var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
+      if (baseLink) {
 
-  // Fetch all checked price ranges
-  var checkedRanges = [];
-  $(".filter-price input:checked").each(function() {
-    var value = $(this).val();
-    if (value) {
-      checkedRanges.push(value);
-    }
-  });
-
-  // Update Shopify.queryParams with selected price ranges
-  if (checkedRanges.length > 0) {
-    Shopify.queryParams.constraint = checkedRanges.join('+');
-  } else {
-    delete Shopify.queryParams.constraint;
-  }
-
-  // Convert the object to a query string
-  var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
-
-  // Construct the new URL
-  var newUrl = '';
-  if (baseLink) {
-    if (newQuery !== "") {
-      newUrl = baseLink + "?" + newQuery;
-    } else {
-      newUrl = baseLink;
-    }
-  } else {
-    newUrl = location.pathname + "?" + newQuery;
-  }
-
-  console.log("Generated URL:", newUrl); // Log the generated URL for debugging
-
-  return newUrl;
-},
-
-
+        if (newQuery != "")
+          return baseLink + "?" + newQuery;
+        else
+          return baseLink;
+      }
+      return location.pathname + "?" + newQuery;
+    },
 
     filterAjaxClick: function(baseLink) {
       delete Shopify.queryParams.page;
