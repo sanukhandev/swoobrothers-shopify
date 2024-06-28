@@ -1,0 +1,30 @@
+{%- layout none -%}
+{%- assign sort_by = collection.sort_by -%}
+{%- if sort_by == 'handles' -%}
+{%- paginate collections by 500 -%}
+[{%- for col in collections -%}"{{col.handle}}"{% unless forloop.last %},{% endunless %}{%- endfor -%}]
+{%- endpaginate -%}
+{%- else -%}
+{%- assign handles = "shopify-best-selling" | split: "," -%}
+{%- assign canonical_url_converted = canonical_url | split: '?' | first -%}
+{%- assign pageUrl = content_for_header | split:'"pageurl":"' | last | split:'"' | first | replace:'\/','/' | prepend: 'https://' | remove: canonical_url_converted | url_decode | replace:'\u0026', '&#38;' | replace:'%20', ' ' -%}
+{%- if pageUrl contains '?' -%}
+  {%- assign params = pageUrl | split: '?' | last | split: '&#38;' -%}
+  {%- for param in params -%}
+    {%- assign prop_n_value = param | split: '=' -%}
+    {%- if prop_n_value[0] == 'handles' -%}
+        {%- assign handles = prop_n_value[1] | split: "," -%}
+    {%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{%- capture output -%}[{%- for handle in handles -%}
+{%- if handle == "shopify-best-selling" -%}
+{%- assign col = collection -%}
+{%- else -%}
+{%- assign col = collections[handle] -%}
+{%- endif -%}
+{%- paginate col.products by 500 -%}
+{"handle":"{{handle}}","products":[{%- for product in col.products -%}{{product.id}}{% unless forloop.last %},{% endunless %}{%- endfor -%}]}{% unless forloop.last %},{% endunless %}
+{%- endpaginate -%}
+{%- endfor -%}]{%- endcapture -%}{{ output | strip_newlines }}
+{%- endif -%}

@@ -1,0 +1,94 @@
+{%- assign item = shop.metafields.mezereon.shopify-product-layout-grid.value.json -%}
+{%- if item == nil -%}
+  {%- assign item = shop.metafields.mezereon.shopify-product-layout-grid.json -%}
+{%- endif -%}
+{%- capture mz_html -%}
+{%- case snippet -%}
+{%- when 'gridItem' -%}
+<div class="mz-grid-item">
+  <div class="mz-item-wrapper" @click="trackClick(item, index)">
+    <div class="mz-item-card {{ item.buttonStyle }}">
+      <div class="mz-item-inner">
+        <div class="mz-item-image-wrapper">
+          <a :href="inner ? inner.url : item.url" :title="stripHtml(item.title)">
+            <img v-lazy="{ src: imageSrc({ size: '400x'}), error: 'https://via.placeholder.com/400/eee'}" class="mz-item-image mz-item-image-primary {{ item.imageHover }}" :alt="stripHtml(item.title)" />
+            <img v-lazy="{ src: secondarySrc({ size: '400x'}), error: 'https://via.placeholder.com/400/eee'}" class="mz-item-image mz-item-image-secondary {{ item.imageHover }}" :alt="stripHtml(item.title)" />
+            <div class="mz-item-image mz-item-image-veil {{ item.imageHover }}"></div>
+          </a>
+        </div>
+        <div v-if="!available" class="mz-item-sold-out-label-wrapper">
+          <span class="mz-item-sold-out-label" v-html="$t('soldOut')"></span>
+        </div>
+        <div v-if="on_sale" class="mz-item-sale-label-wrapper">
+          <span class="mz-item-sale-label" v-html="$t('sale')"></span>
+        </div>
+        <div v-if="available" class="mz-actions-wrapper">
+          <a v-if="item.variants.length > 1" :href="inner ? inner.url : item.url" class="mz-add2cart-wrapper" :title="stripHtml(item.title)">
+            <div class="mz-add2cart">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" class="iconify iconify--ic" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20.01 4H5.21l-.94-2H1v2h2l3.6 7.59l-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2s-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2z" fill="currentColor"></path></svg>
+                <div class="mz-add2cart-text" v-html="$t('Select Options')"></div>
+              </div>
+            </div>
+          </a>
+          <a v-else :href="'/cart/add?id=' + item.variants[0].id" class="mz-add2cart-wrapper" :title="stripHtml(item.title)">
+            <div class="mz-add2cart">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" class="iconify iconify--ic" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20.01 4H5.21l-.94-2H1v2h2l3.6 7.59l-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2s-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2z" fill="currentColor"></path></svg>
+                <div class="mz-add2cart-text" v-html="$t('Add to Cart')"></div>
+              </div>
+            </div>
+          </a>
+          <a href="" class="mz-quickview-wrapper">
+            <div class="mz-quickview">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" class="iconify iconify--vaadin" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="currentColor" d="M8 3.9C1.3 3.9 0 9 0 9s2.2 4.1 7.9 4.1s8.1-4 8.1-4s-1.3-5.2-8-5.2zM5.3 5.4c.5-.3 1.3-.3 1.3-.3s-.5.9-.5 1.6c0 .7.2 1.1.2 1.1L5.2 8s-.3-.5-.3-1.2c0-.8.4-1.4.4-1.4zm2.6 6.7c-4.1 0-6.2-2.3-6.8-3.2c.3-.7 1.1-2.2 3.1-3.2c-.1.4-.2.8-.2 1.3c0 2.2 1.8 4 4 4s4-1.8 4-4c0-.5-.1-.9-.2-1.3c2 .9 2.8 2.5 3.1 3.2c-.7.9-2.8 3.2-7 3.2z"></path></svg>
+                <div class="mz-quickview-text" v-html="$t('Quick View')"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="mz-item-info-wrapper">
+        <a :href="inner ? inner.url : item.url" class="mz-item-title" :title="stripHtml(item.title)">
+          <div v-html="item.title"></div>
+        </a>
+        <template v-if="context.vendorShow">
+          <p class="mz-item-vendor" v-html="item.vendor"></p>
+        </template>
+        {% if item.reviews and item.reviews.enabled %}
+        <mz-reviews v-if="item.ratingCount > 0" :value="item.ratingValue" :count="item.ratingCount" star="{{ item.reviews.star }}" pattern="{{ item.reviews.pattern }}"></mz-reviews>
+        {% endif %}
+        <div class="mz-item-price-wrapper">
+          <template v-if="on_sale">
+            <template v-if="price_varies">
+              <span class="visually-hidden" v-html="$t('salePrice')"></span>
+              <span class="mz-item-sale-price" v-html="$t('saleFromPrice', { price: currency(price), lowest_price: currency(price) })"></span>
+              <span class="visually-hidden" v-html="$t('regularPrice')"></span>
+              <span class="mz-item-old-price" v-html="currency(compare_at_price)"></span>
+            </template>
+            <template v-else>
+              <span class="visually-hidden" v-html="$t('regularPrice')"></span>
+              <span class="mz-item-old-price" v-html="currency(compare_at_price)"></span>
+              <span class="visually-hidden" v-html="$t('salePrice')"></span>
+              <span class="mz-item-sale-price" v-html="currency(price)"></span>
+            </template>
+          </template>
+          <template v-else>
+            <span class="visually-hidden" v-html="$t('regularPrice')"></span>
+            <span v-if="price_varies" class="mz-item-price-from" v-html="$t('fromPrice', { price: currency(price), lowest_price: currency(price) })"></span>
+            <span v-else class="mz-item-price" v-html="currency(price)"></span>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{%- when 'listItem' -%}
+<div>- not implemented - </div>
+{%- endcase -%}
+{%- endcapture -%}
+
+{%- assign start_tag = "{{" -%}
+{%- assign end_tag = "}}" -%}
+{{- mz_html | json | replace: "[[", start_tag | replace: "]]", end_tag -}}

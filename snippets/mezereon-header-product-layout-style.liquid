@@ -1,0 +1,48 @@
+{%- assign item = shop.metafields.mezereon.shopify-product-layout-grid.value.json -%}
+{%- if item == nil -%}
+  {%- assign item = shop.metafields.mezereon.shopify-product-layout-grid.json -%}
+{%- endif -%}
+:root {
+  --wrapper-bg-color: {{ item.wrapper.colors['bgColor'].value.hex8 }};
+  --wrapper-bg-color-hover: {{ item.wrapper.colors['bgColorHover'].value.hex8 }};
+  --image-max-width: {{ item.image.maxWidth }}px;
+  --image-max-height: {{ item.image.maxHeight }}px;
+  --image-bg-color: {{ item.image.colors['bgColor'].value.hex8 }};
+  --image-bg-color-hover: {{ item.image.colors['bgColorHover'].value.hex8 }};
+  --add2cart-enabled: {%- if item.add2Cart.enabled -%}inline-block{%- else -%}none{%- endif -%};
+  --add2cart-bg-color: {{ item.add2Cart.colors['bgColor'].value.hex8 }};
+  --add2cart-bg-color-hover: {{ item.add2Cart.colors['bgColorHover'].value.hex8 }};
+  --add2cart-text-color: {{ item.add2Cart.colors['textColor'].value.hex8 }};
+  --add2cart-text-color-hover: {{ item.add2Cart.colors['textColorHover'].value.hex8 }};
+  --add2cart-border-color: {{ item.add2Cart.colors['borderColor'].value.hex8 }};
+  --add2cart-border-color-hover: {{ item.add2Cart.colors['borderColorHover'].value.hex8 }};
+  --quickview-enabled: {%- if item.quickView.enabled -%}inline-block{%- else -%}none{%- endif -%};
+  --quickview-bg-color: {{ item.quickView.colors['bgColor'].value.hex8 }};
+  --quickview-bg-color-hover: {{ item.quickView.colors['bgColorHover'].value.hex8 }};
+  --quickview-text-color: {{ item.quickView.colors['textColor'].value.hex8 }};
+  --quickview-text-color-hover: {{ item.quickView.colors['textColorHover'].value.hex8 }};
+  --quickview-border-color: {{ item.quickView.colors['borderColor'].value.hex8 }};
+  --quickview-border-color-hover: {{ item.quickView.colors['borderColorHover'].value.hex8 }};
+  --sale-bg-color: {{ item.sale.colors['bgColor'].value.hex8 }};
+  --sale-text-color: {{ item.sale.colors['textColor'].value.hex8 }};
+  --sale-border-color: {{ item.sale.colors['borderColor'].value.hex8 }};
+  --sold-out-bg-color: {{ item.soldOut.colors['bgColor'].value.hex8 }};
+  --sold-out-text-color: {{ item.soldOut.colors['textColor'].value.hex8 }};
+  --sold-out-border-color: {{ item.soldOut.colors['borderColor'].value.hex8 }};
+  --info-bg-color: {{ item.info.colors['bgColor'].value.hex8 }};
+  --info-bg-color-hover: {{ item.info.colors['bgColorHover'].value.hex8 }};
+  --info-title-color: {{ item.info.colors['titleColor'].value.hex8 }};
+  --info-title-color-hover: {{ item.info.colors['titleColorHover'].value.hex8 }};
+  --info-vendor-color: {{ item.info.colors['vendorColor'].value.hex8 }};
+  --info-price-color: {{ item.info.colors['priceColor'].value.hex8 }};
+  --info-old-price-color: {{ item.info.colors['oldPriceColor'].value.hex8 }};
+  --info-sale-price-color: {{ item.info.colors['salePriceColor'].value.hex8 }};
+  --reviews-fill-color: {{ item.reviews.colors['fillColor'].value.hex8 }};
+  --reviews-border-color: {{ item.reviews.colors['borderColor'].value.hex8 }};
+  --reviews-empty-color: {{ item.reviews.colors['emptyColor'].value.hex8 }};
+}
+{%- assign css = shop.metafields.mezereon.shopify-product-layout-grid.value.css -%}
+{%- if css == nil -%}
+  {%- assign css = shop.metafields.mezereon.shopify-product-layout-grid.css -%}
+{%- endif -%}
+{{ css }}

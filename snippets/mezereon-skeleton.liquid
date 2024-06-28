@@ -1,0 +1,45 @@
+{%- case type -%}
+{%- when 'horizontal-filter' -%}
+<div v-if="loading" class="mz-skeleton-wrapper mz-aggs-horizontal mz-hidden-xs mz-refinements mz-horizontal" style="{{style}}">
+  <span class="mz-skeleton" style="width: 15%; height: 30px; margin: 0 10px 0 0;"></span>
+  <span class="mz-skeleton" style="width: 20%; height: 30px; margin: 0 10px 0 0;"></span>
+  <span class="mz-skeleton" style="width: 10%; height: 30px; margin: 0 10px 0 0;"></span>
+  <span class="mz-skeleton" style="width: 14%; height: 30px; margin: 0 10px 0 0;"></span>
+</div>
+{%- when 'selections' -%}
+<div v-if="loading" class="mz-skeleton-wrapper mz-selections" style="{{style}}">
+  <span class="mz-skeleton" style="width: 15%; height: 40px; margin: 0 10px 0 0;"></span>
+  <span class="mz-skeleton" style="width: 20%; height: 40px; margin: 0 10px 0 0;"></span>
+</div>
+{%- when 'action-bar' -%}
+<div v-if="loading" class="mz-skeleton-wrapper mz-action-bar" style="{{style}}">
+  <div class="mz-inline-flex mz-preview-margin">
+    <div class="mz-skeleton" style="width: 270px; height: 35px; margin: 0 10px 0 0;"></div>
+  </div>
+  <div class="mz-hits-info">
+    <div class="mz-skeleton" style="width: 240px; height: 20px; margin: 0 10px 0 0;"></div>
+  </div>
+</div>
+{%- when 'vertical-filter' -%}
+<div v-if="loading" class="mz-skeleton-wrapper" style="{{style}}">
+  {% for i in (1..3) %}
+  <div {% if i>1 %}style="margin-top: 40px;"{% endif %}>
+    <div class="mz-skeleton" style="width: 40%; height: 18px; margin: 10px 0;"></div>
+    <div class="mz-skeleton" style="width: 70%; height: 12px; margin: 5px 0;"></div>
+    <div class="mz-skeleton" style="width: 60%; height: 12px; margin: 5px 0;"></div>
+    <div class="mz-skeleton" style="width: 65%; height: 12px; margin: 5px 0;"></div>
+  </div>
+  {% endfor %}
+</div>
+{%- when 'grid' -%}
+<div v-if="loading" class="mz-skeleton-wrapper mz-grid" style="{{style}}">
+  {% for i in (1..8) %}
+  <div class="mz-grid-item">
+    <div class="mz-skeleton" style="width: 80%; padding: 40%; margin: 0 10% 0 5%;"></div>
+    <div class="mz-skeleton" style="width: 70%; height: 12px; margin: 0 10% 0 5%; margin-left:10%;"></div>
+    <div class="mz-skeleton" style="width: 40%; height: 12px; margin: 0 10% 10% 5%; margin-left:25%;"></div>
+  </div>
+  {% endfor %}
+</div>
+{%- when 'list' -%}
+{%- endcase -%}

@@ -1,0 +1,78 @@
+{%- if content_for_header contains '.mezereon' and shop.metafields.mezereon.status == 'enabled' -%}
+{%- if shop.metafields.mezereon.search == 'enabled' -%}
+{%- assign loadingEffect = 'none'-%}
+{%- assign loadingEffect = 'skeleton'-%}
+{%- assign loadingEffect = 'spinner'-%}
+{%- capture filterLayout -%}{% include 'mezereon-filter-layout', f: 'filter-layout' %}{%- endcapture -%}
+{% assign filterLayout = filterLayout | strip %}
+{%- assign filterLayoutClass = 'mz-filter-layout-' | append: filterLayout -%}
+{%- capture filterSelections -%}{% include 'mezereon-filter-layout', f: 'filter-selections' %}{%- endcapture -%}
+{%- assign filterSelections = filterSelections | strip -%}
+{%- if filterSelections == 'true' -%}
+  {%- assign filterSelections = true -%}
+{%- else -%}
+  {%- assign filterSelections = false -%}
+{%- endif -%}
+<div id="mz-app">
+  {%- if loadingEffect == 'spinner'-%}
+  <img src="https://cdn.mezereon.net/assets/loading.gif" class="mz-loader" v-if="loading" />
+  {%- endif -%}
+  <div class="mz-search-revealed" :style="{'opacity': keyword && !loading ? 1 : 0}" v-html="$t('SearchRevealed', {keyword: keyword})">
+    &nbsp;
+  </div>
+  {%- if loadingEffect == 'none'-%}
+  <div class="mz-results" :class="{'mz-loaded': !loading }">
+    {%- elsif loadingEffect == 'spinner' -%}
+    <div v-if="!loading" class="mz-results" :class="{'mz-loaded': !loading }">
+      {%- else -%}
+      <div class="mz-results mz-loaded">
+        {%- endif -%}
+        <div class="mz-box-body {{ filterLayoutClass }}">
+          {%- if filterLayout == 'horizontal' -%}
+          {% include 'mezereon-skeleton', type: 'horizontal-filter', style: '' %}
+          {%- endif -%}
+          <mz-refinements v-if="!loading" :horizontal="true" class="mz-aggs-horizontal mz-hidden-xs"></mz-refinements>
+          {%- if filterSelections -%}
+          {% include 'mezereon-skeleton', type: 'selections', style: '' %}
+          {%- endif -%}
+          <mz-selections v-if="!loading && selections.length > 0" :show-keyword="false"></mz-selections>
+          <div class="mz-row">
+            <div class="{{ filterLayoutClass }}">
+              <div class="mz-aggs mz-aggs-vertical mz-hidden-xs">
+                <portal to="mz-mobile-facets" :disabled="!portalNav">
+                  <mz-banner zone="facets-top-1"></mz-banner>
+                  <mz-banner zone="facets-top-2"></mz-banner>
+                  {%- if filterLayout == 'vertical' -%}
+                  {% include 'mezereon-skeleton', type: 'vertical-filter', style: '' %}
+                  {%- endif -%}
+                  <mz-refinements icon-set="animated"></mz-refinements>
+                  <mz-banner zone="facets-bottom-1"></mz-banner>
+                  <mz-banner zone="facets-bottom-2"></mz-banner>
+                </portal>
+              </div>
+            </div>
+            <div class="mz-hits">
+              {% include 'mezereon-skeleton', type: 'action-bar', style: '' %}
+              <mz-action-bar v-if="!loading" :toggle-layout="false" @toggle-portal-nav="togglePortalNav">
+                <mz-hits-info></mz-hits-info>
+              </mz-action-bar>
+              {% include 'mezereon-skeleton', type: 'grid', style: '' %}
+              <mz-banner zone="results-top-1"></mz-banner>
+              <mz-banner zone="results-top-2"></mz-banner>
+              <mz-hits-grid v-slot="single" class="mz-grid">
+                <mz-html-grid-item v-if="single.hit.html" :item="single.hit.item" :inner="single.hit.inner" :score="single.hit.score" :index="single.index" :html="single.hit.html"></mz-html-grid-item>
+                <mz-grid-item v-else :item="single.hit.item" :inner="single.hit.inner" :score="single.hit.score" :index="single.index"></mz-grid-item>
+              </mz-hits-grid>
+              <mz-banner zone="results-bottom-1"></mz-banner>
+              <mz-banner zone="results-bottom-2"></mz-banner>
+            </div>
+            <mz-pagination></mz-pagination>
+          </div>
+        </div>
+      </div>
+      <ch-drawer location="right" custom-class="mz-drawer" area="80%" :visible.sync="portalNav">
+        <portal-target name="mz-mobile-facets"></portal-target>
+      </ch-drawer>
+    </div>
+    {%- endif -%}
+    {%- endif -%}

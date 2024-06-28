@@ -1,0 +1,86 @@
+{%- case f -%}
+{%- when 'filter-selections' -%}
+  {%- assign canonical_url_converted = canonical_url | split: '?' | first -%}
+  {%- assign pageUrl = content_for_header | split:'"pageurl":"' | last | split:'"' | first | replace:'\/','/' | prepend: 'https://' | remove: canonical_url_converted | url_decode | replace:'\u0026', '&#38;' | replace:'%20', ' ' -%}
+  {%- assign pageQueryString = pageUrl | split:'?' | last -%}
+  {%- if pageQueryString contains 'mz.' -%}{%- assign filterSelections = true -%}{%- endif -%}
+{{ filterSelections }}
+{%- when 'filter-enabled' -%}
+  {%- assign filterEnabled = 'disabled' -%}
+  {%- assign filterGroups = shop.metafields.mezereon.filterGroups.value -%}
+  {%- if filterGroups == nil -%}
+    {%- assign filterGroups = shop.metafields.mezereon.filterGroups -%}
+  {%- endif -%}
+  {%- capture NowUtc -%}{{'now' | date: '%s'}}{%- endcapture -%}
+  {%- for filterGroup in filterGroups -%}
+    {%- if filterGroup.StartDate != nil -%}
+      {%- capture StartDate -%}{{filterGroup.StartDate | date: '%s'}}{%- endcapture -%}
+      {%- if StartDate > NowUtc -%}{%- continue -%}{%- endif -%}
+    {%- endif -%}
+    {%- if filterGroup.EndDate != nil -%}
+      {%- capture EndDate -%}{{filterGroup.EndDate | date: '%s'}}{%- endcapture -%}
+      {%- if EndDate < NowUtc -%}{%- continue -%}{%- endif -%}
+    {%- endif -%}
+    {%- if filterGroup.TriggerType == "all" -%}
+      {%- assign filterEnabled = 'enabled' -%}
+      {%- break -%}
+    {%- endif -%}
+    {%- if filterGroup.TriggerType == "collection" -%}
+      {%- if request.page_type != 'collection' -%}{%- continue -%}{%- endif -%}
+      {%- if filterGroup.Collections.size == 0 -%}
+        {%- assign filterEnabled = 'enabled' -%}
+        {%- break -%}
+      {%- endif -%}
+      {%- assign found = false -%}
+      {%- for col in filterGroup.Collections -%}
+        {%- if collection.handle == col -%}{%- assign found = true -%}{%- break -%}{%- endif -%}
+      {%- endfor -%}
+      {%- if found -%}
+        {%- assign filterEnabled = 'enabled' -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{{ filterEnabled }}
+{%- when 'filter-layout' -%}
+  {%- assign filterGroups = shop.metafields.mezereon.filterGroups.value -%}
+  {%- if filterGroups == nil -%}
+    {%- assign filterGroups = shop.metafields.mezereon.filterGroups -%}
+  {%- endif -%}
+  {%- assign filterLayout = "vertical" -%}
+  {%- capture NowUtc -%}{{'now' | date: '%s'}}{%- endcapture -%}
+  {%- for filterGroup in filterGroups -%}
+    {%- if filterGroup.StartDate != nil -%}
+      {%- capture StartDate -%}{{filterGroup.StartDate | date: '%s'}}{%- endcapture -%}
+      {%- if StartDate > NowUtc -%}{%- continue -%}{%- endif -%}
+    {%- endif -%}
+    {%- if filterGroup.EndDate != nil -%}
+      {%- capture EndDate -%}{{filterGroup.EndDate | date: '%s'}}{%- endcapture -%}
+      {%- if EndDate < NowUtc -%}{%- continue -%}{%- endif -%}
+    {%- endif -%}
+    {%- if filterGroup.TriggerType == "all" -%}
+      {%- assign filterLayout = filterGroup.FilterLayout -%}
+      {%- break -%}
+    {%- endif -%}
+    {%- if filterGroup.TriggerType == "collection" -%}
+      {%- if request.page_type != 'collection' -%}{%- continue -%}{%- endif -%}
+      {%- if filterGroup.Collections.size == 0 -%}
+        {%- assign filterLayout = filterGroup.FilterLayout -%}
+        {%- break -%}
+      {%- endif -%}
+      {%- assign found = false -%}
+      {%- for col in filterGroup.Collections -%}
+        {%- if collection.handle == col -%}{%- assign found = true -%}{%- break -%}{%- endif -%}
+      {%- endfor -%}
+      {%- if found -%}
+        {%- assign filterLayout = filterGroup.FilterLayout -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- if filterGroup.TriggerType == "search" -%}
+      {%- if request.page_type == 'collection' -%}{%- continue -%}{%- endif -%}
+      {%- assign filterLayout = filterGroup.FilterLayout -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{{ filterLayout }}{%- endcase -%}

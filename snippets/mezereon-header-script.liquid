@@ -1,0 +1,51 @@
+{%- if content_for_header contains '.mezereon' and shop.metafields.mezereon.status == 'enabled' -%}
+<style type="text/css">
+  {% include 'mezereon-header-style' %}
+</style>
+<script type="text/javascript">
+  (function (w) {
+    w.mz = w.mz || {}; w.mz.track = w.mz.track || function () { (w.mz.q = w.mz.q || []).push(arguments) }
+    w.mz.config = {
+      tracking: {
+        url: 'https://t.mezereon.net/t',
+        key: 'track-3d160139-fd12-4b46-9db3-4585f8f66c75',
+        log: false
+      },
+      search: {
+        url: 'https://api.mezereon.net/api/1.0',
+        key: 'search-a52bd721-3602-48ef-a46e-fbf02e4b6b8e'
+      },
+      cookieless: {
+        sort: true
+      }
+    };
+    w.mz.moneyFormat={{ shop.money_format | json }};
+    var c = w.mz.context = {}; c.shopName={{ shop.name | json }}; c.pageTitle={{ page_title | json }}; c.vendorShow=false;
+    {%- if request.page_type == 'collection' -%}
+    c.pageUrl="{{ collection.url }}"; c.tags=['collection']; c.handle="{{collection.handle}}";
+    {%- if current_tags -%}
+    c.filter="collections={% if collection.id %}{{collection.handle}}{% endif %}&tags={{current_tags}}"; 
+    {%- else -%}
+    c.filter="collections={% if collection.id %}{{collection.handle}}{% endif %}"; 
+    {%- endif -%}
+    {%- endif -%}
+    {%- assign mz_search_url = routes.root_url | append: '/pages/search' | replace: '//', '/' -%}
+    {%- if request.page_type == 'search' or page.url == mz_search_url -%}
+    c.tags=['search'];
+    {%- endif -%}
+    {%- capture filterEnabled -%}{% include 'mezereon-filter-layout', f: 'filter-enabled' %}{%- endcapture -%}
+    {%- assign filterEnabled = filterEnabled | strip -%}
+    c.filterShow={%- if filterEnabled == 'enabled' -%}true{%- else-%}false{%- endif %};
+    c.root = Shopify.routes.root;
+  })(window);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mezereon/ui-shopify@1.0.76/dist/ui-shopify.umd.min.js" defer></script>
+<script src="{{ 'mezereon.js' | asset_url }}" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mezereon/ui-shopify@1.0.76/dist/ui-shopify.css">
+{{ 'mezereon.css' | asset_url | stylesheet_tag }}
+{{ 'mezereon-product-grid.css' | asset_url | stylesheet_tag }}
+<style type="text/css">
+  {% include 'mezereon-header-product-layout-style' %}
+</style>
+{%- endif -%}

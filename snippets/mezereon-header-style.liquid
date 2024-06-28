@@ -1,0 +1,28 @@
+#mz-app {
+    min-height: 350px;
+    position: relative;
+}
+
+.mz-loader {
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 150px;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+{%- if shop.metafields.mezereon.suggest == 'enabled' -%}
+{%- endif -%}
+
+{%- if shop.metafields.mezereon.collection == 'enabled' -%}
+{%- capture filterEnabled -%}{% include 'mezereon-filter-layout', f: 'filter-enabled' %}{%- endcapture -%}
+{%- assign filterEnabled = filterEnabled | strip -%}
+{%- if filterEnabled == 'enabled' -%}
+
+{%- endif -%}
+{%- endif -%}

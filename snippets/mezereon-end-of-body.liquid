@@ -1,0 +1,82 @@
+{%- if content_for_header contains '.mezereon' and shop.metafields.mezereon.status == 'enabled' -%}
+{%- if shop.metafields.mezereon.suggest == 'enabled' -%}
+<div id="mz-autocomplete">
+  <mz-autocomplete :delay="50" selector="input[name='q']" query-param="q" search-url="{{ routes.search_url | replace: "/search" , "/pages/search" }}"></mz-autocomplete>
+</div>
+{%- endif -%}
+
+{%- assign addToCart = 'products.product.add_to_cart' | t -%}
+{%- if addToCart contains 'Translation missing' or addToCart contains 'translation missing' -%}
+{%- assign addToCart = 'Add to Cart' -%}
+{%- endif -%}
+{%- assign sale = 'products.product.on_sale' | t -%}
+{%- if sale contains 'Translation missing' or sale contains 'translation missing' -%}
+{%- assign sale = 'products.product.sale' | t -%}
+{%- endif -%}
+{%- if sale contains 'Translation missing' or sale contains 'translation missing' -%}
+{%- assign sale = 'Sale' -%}
+{%- endif -%}
+{%- assign soldOut = 'products.product.sold_out' | t -%}
+{%- if soldOut contains 'Translation missing' or soldOut contains 'translation missing' -%}
+{%- assign soldOut = 'Sold Out' -%}
+{%- endif -%}
+{%- assign regularPrice = 'products.product.regular_price' | t -%}
+{%- if regularPrice contains 'Translation missing' or regularPrice contains 'translation missing' -%}
+{%- assign regularPrice = '' -%}
+{%- endif -%}
+{%- assign salePrice = 'products.product.sale_price' | t -%}
+{%- if salePrice contains 'Translation missing' or salePrice contains 'translation missing' -%}
+{%- assign salePrice = '' -%}
+{%- endif -%}
+{%- assign fromPrice = 'From {price}' -%}
+{%- assign saleFromPrice = 'From {price}' -%}
+
+<! -- Mezereon Configuration -->
+<script type="text/javascript">
+(function (w) {
+  w.mz = w.mz || {};
+  w.mz.gridItem = {% render 'mezereon-product-layout-html', snippet: 'gridItem' %};
+  w.mz.listItem = '';
+  w.mz.customer_tags = {% if customer %}{{customer.tags | json}}{% else %}[]{% endif %};
+{%- if shop.metafields.mezereon.autocomplete -%}
+  {%- assign mzautocomplete = shop.metafields.mezereon.autocomplete | json -%}
+  {%- if mzautocomplete contains 'json not allowed for this object' -%}
+  {%- assign mzautocomplete = shop.metafields.mezereon.autocomplete -%}
+  {%- endif -%}
+  w.mz.autocomplete={{ mzautocomplete }};
+{%- endif -%}
+{%- if shop.metafields.mezereon.translation -%}
+  {%- assign mztranslation = shop.metafields.mezereon.translation | json -%}
+  {%- if mztranslation contains 'json not allowed for this object' -%}
+  {%- assign mztranslation = shop.metafields.mezereon.translation -%}
+  {%- endif -%}
+  w.mz.translation={{ mztranslation }};
+{%- endif -%}
+  var t = w.mz.translation || {}; t.addToCart="{{ addToCart }}"; t.sale= "{{ sale }}"; t.soldOut = "{{ soldOut }}"; t.regularPrice = "{{ regularPrice }}"; t.salePrice = "{{ salePrice }}"; t.fromPrice= "{{ fromPrice }}"; t.saleFromPrice = "{{ saleFromPrice }}";
+})(window);
+</script>
+{%- if shop.metafields.mezereon.search == 'enabled' -%}
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+  if (!window.mz) {
+    return
+  }
+  document.querySelectorAll('form[action="' + mz.context.root + 'search"]').forEach(function (form) {
+    form.addEventListener("submit", function () {
+      if (window.mz.enabled) {
+        form.action = mz.context.root + 'pages/search'
+      }
+    })
+  })
+  document.querySelectorAll('a[href="' + mz.context.root + 'search"]').forEach(function (link) {
+    link.addEventListener("click", function () {
+      if (window.mz.enabled) {
+        link.href = mz.context.root + 'pages/search'
+      }
+    })
+  })
+})
+</script>
+{%- endif -%}
+{% include 'mezereon-tracking' %}
+{%- endif -%}

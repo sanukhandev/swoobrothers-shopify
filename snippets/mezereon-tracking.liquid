@@ -1,0 +1,28 @@
+{% if product %}
+<script type="text/javascript">
+  if (mz && mz.track) {
+    mz.track('view', { uid: '{{ product.id }}' });
+    Array.from(document.querySelectorAll('.btn--add-to-cart, .shopify-payment-button__button')).forEach(function (btn) {
+      if (!btn.form) { return; }
+      if (!btn.form.id) { return; }
+      btn.addEventListener('click', function (e) { window.mz.track('add2cart', { uid: '{{ product.id }}' }); })
+    });
+  }
+</script>
+{% endif %}
+{% if request.page_type == 'cart' %}
+{% if cart %}
+{% assign uids = cart.items | map: "product" | map: "id" | uniq | join: ', ' %}
+<script type="text/javascript">
+  if (mz && mz.track) {
+    if ('{{ customer.email }}') {
+      mz.track('identify', { email: '{{ customer.email }}' });
+    }
+    mz.track('cart', {
+      uid: [{{ uids }}],
+      total: {{ cart.total_price | divided_by: 100.00 }}
+    });
+  }
+</script>
+{% endif %}
+{% endif %}
