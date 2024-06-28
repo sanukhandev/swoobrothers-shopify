@@ -280,6 +280,7 @@
     },
 
     filterCreateUrl: function(baseLink) {
+      Shopify.queryParams = Shopify.queryParams/100;
       var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
       console.log(newQuery);
       if (baseLink) {
