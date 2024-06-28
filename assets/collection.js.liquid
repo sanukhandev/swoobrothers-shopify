@@ -279,19 +279,24 @@
 
     },
 
-    filterCreateUrl: function(baseLink) {
-      
-      var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
-      console.log(newQuery);
-      if (baseLink) {
+ filterCreateUrl: function(baseLink) {
+  var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
+  console.log(newQuery);
 
-        if (newQuery != "")
-          return baseLink + "?" + newQuery;
-        else
-          return baseLink;
-      }
-      return location.pathname + "?" + newQuery;
-    },
+  // Divide constraint values by 100
+  var dividedQuery = newQuery.replace(/constraint=(\d+)-(\d+)/g, function(match, min, max) {
+    return "constraint=" + (parseInt(min) / 100) + "-" + (parseInt(max) / 100);
+  });
+
+  if (baseLink) {
+    if (dividedQuery !== "") {
+      return baseLink + "?" + dividedQuery;
+    } else {
+      return baseLink;
+    }
+  }
+  return location.pathname + "?" + dividedQuery;
+},
 
     filterAjaxClick: function(baseLink) {
       delete Shopify.queryParams.page;
