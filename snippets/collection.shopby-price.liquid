@@ -3,42 +3,13 @@
     <h2 class="mb-0">{{ settings.shop_by_price_title }}</h2>
   </div>
 
-  {% assign min_price = 999999999 %}
-  {% assign max_price = 0 %}
-
-  {% for product in collection.products %}
-    {% for variant in product.variants %}
-      {% assign price = variant.price | divided_by: 100 %}
-      {% if price < min_price %}
-        {% assign min_price = price %}
-      {% endif %}
-      {% if price > max_price %}
-        {% assign max_price = price %}
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
-
-  {% assign price_range_step = 50 %}
-  {% assign price_ranges = "" %}
-
-  {% for i in (0..10) %}
-    {% assign current_price = min_price | plus: price_range_step | times: i %}
-    {% assign next_price = current_price | plus: price_range_step %}
-    {% if current_price >= max_price %}
-      {% break %}
-    {% endif %}
-    {% if next_price > max_price %}
-      {% assign next_price = max_price %}
-    {% endif %}
-    {% assign price_ranges = price_ranges | append: current_price | append: " - " | append: next_price | append: "," %}
-  {% endfor %}
-
-  {% assign price_ranges = price_ranges | split: "," %}
-
+  {% assign price_ranges = "10 - 20,20 - 30,30 - 50,50 - 100,100 - 200" | split: "," %}
   <ul class="list-none list-price">
     {% for range in price_ranges %}
       {% if range != "" %}
         {% assign prices = range | split: " - " %}
+         {% assign min_price = prices[0] | times: 100 %}
+        {% assign max_price = prices[1] | times: 100 %}
         <li class="cat-item">
           <input type="checkbox" value="{{ prices[0] }}-{{ prices[1] }}" id="price-filter-{{ forloop.index }}">
           <a href="javascript:void(0)" title="{{ range }}" class="price-filter" data-min="{{ prices[0] }}" data-max="{{ prices[1] }}">
