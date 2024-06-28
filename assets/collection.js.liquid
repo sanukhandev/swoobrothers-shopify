@@ -227,7 +227,8 @@
           addToCartSelector: '.enj-add-to-cart-btn',
           cartCountSelector: '.enj-cartcount',
           cartCostSelector: '.enj-cartcost',
-          moneyFormat: {{ shop.money_format | json }}
+          //moneyFormat: {{ shop.money_format | json }}
+          moneyFormat: 'INR'
         };
           jQuery(function($) {
           ajaxCart.init(ajaxCartConfig);
