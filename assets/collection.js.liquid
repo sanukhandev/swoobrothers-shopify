@@ -293,7 +293,7 @@ filterCreateUrl: function(baseLink) {
 
   // Update Shopify.queryParams with selected price ranges
   if (checkedRanges.length > 0) {
-    Shopify.queryParams.constraint = checkedRanges.join(',');
+    Shopify.queryParams.constraint = checkedRanges.join('+');
   } else {
     delete Shopify.queryParams.constraint;
   }
@@ -302,15 +302,20 @@ filterCreateUrl: function(baseLink) {
   var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
 
   // Construct the new URL
+  var newUrl = '';
   if (baseLink) {
     if (newQuery !== "") {
-      return baseLink + "?" + newQuery;
+      newUrl = baseLink + "?" + newQuery;
     } else {
-      return baseLink;
+      newUrl = baseLink;
     }
   } else {
-    return location.pathname + "?" + newQuery;
+    newUrl = location.pathname + "?" + newQuery;
   }
+
+  console.log("Generated URL:", newUrl); // Log the generated URL for debugging
+
+  return newUrl;
 },
 
 
