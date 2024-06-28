@@ -51,8 +51,8 @@
       let products = document.querySelectorAll('.trans-product');
       // Show/Hide products based on filters
       products.forEach(function(product) {
-        let showProduct = filters.every(function(filter) {
-          let productConvertedPrice = parseFloat(product.dataset.convertedPrice);
+        let productConvertedPrice = parseFloat(product.dataset.convertedPrice);
+        let showProduct = filters.length === 0 || filters.some(function(filter) {
           return productConvertedPrice >= filter.min && productConvertedPrice <= filter.max;
         });
 
