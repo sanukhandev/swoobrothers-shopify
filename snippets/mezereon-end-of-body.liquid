@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('form[action="' + mz.context.root + 'search"]').forEach(function (form) {
     form.addEventListener("submit", function () {
       if (window.mz.enabled) {
-        form.action = mz.context.root + 'pages/search'
+        form.action = mz.context.root + 'collections/all'
       }
     })
   })
