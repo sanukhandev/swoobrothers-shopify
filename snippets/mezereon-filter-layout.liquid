@@ -6,7 +6,7 @@
   {%- if pageQueryString contains 'mz.' -%}{%- assign filterSelections = true -%}{%- endif -%}
 {{ filterSelections }}
 {%- when 'filter-enabled' -%}
-  {%- assign filterEnabled = 'disabled' -%}
+  {%- assign filterEnabled = 'enabled' -%}
   {%- assign filterGroups = shop.metafields.mezereon.filterGroups.value -%}
   {%- if filterGroups == nil -%}
     {%- assign filterGroups = shop.metafields.mezereon.filterGroups -%}
