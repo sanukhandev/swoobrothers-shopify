@@ -279,22 +279,33 @@
 
     },
 
- filterCreateUrl: function(baseLink) {
-  var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
-
-  // Divide constraint values by 100
-  var dividedQuery = newQuery.replace(/constraint=(\d+)-(\d+)/g, function(match, min, max) {
-    return "constraint=" + (parseInt(min) / 100) + "-" + (parseInt(max) / 100);
-  });
+filterCreateUrl: function(baseLink) {
+  var queryParams = Object.assign({}, Shopify.queryParams); // Clone the queryParams object
+  
+  // Adjust constraint values if needed
+  for (var key in queryParams) {
+    if (key === 'constraint') {
+      var values = queryParams[key];
+      for (var i = 0; i < values.length; i++) {
+        var range = values[i].split('-');
+        if (range.length === 2) {
+          values[i] = (parseInt(range[0]) / 100) + '-' + (parseInt(range[1]) / 100);
+        }
+      }
+    }
+    // Add any other necessary logic for different parameters
+  }
+  
+  var newQuery = $.param(queryParams).replace(/%2B/g, '+');
 
   if (baseLink) {
-    if (dividedQuery !== "") {
-      return baseLink + "?" + dividedQuery;
+    if (newQuery !== "") {
+      return baseLink + "?" + newQuery;
     } else {
       return baseLink;
     }
   }
-  return location.pathname + "?" + dividedQuery;
+  return location.pathname + "?" + newQuery;
 },
 
     filterAjaxClick: function(baseLink) {
