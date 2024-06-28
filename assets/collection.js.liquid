@@ -279,20 +279,23 @@
 
     },
 
-   filterCreateUrl: function(baseLink) {
+filterCreateUrl: function(baseLink) {
   Shopify.queryParams = Shopify.queryParams || {};
 
   // Fetch all checked price ranges
   var checkedRanges = [];
   $(".filter-price input:checked").each(function() {
-    checkedRanges.push($(this).val());
+    var value = $(this).val();
+    if (value) {
+      checkedRanges.push(value);
+    }
   });
 
   // Update Shopify.queryParams with selected price ranges
   if (checkedRanges.length > 0) {
-    Shopify.queryParams.price_range = checkedRanges.join('+');
+    Shopify.queryParams.constraint = checkedRanges.join('+');
   } else {
-    delete Shopify.queryParams.price_range;
+    delete Shopify.queryParams.constraint;
   }
 
   // Convert the object to a query string
@@ -309,6 +312,7 @@
     return location.pathname + "?" + newQuery;
   }
 },
+
 
 
     filterAjaxClick: function(baseLink) {
