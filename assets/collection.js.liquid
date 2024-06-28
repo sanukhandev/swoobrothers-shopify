@@ -288,7 +288,9 @@ filterCreateUrl: function(baseLink) {
     for (var i = 0; i < constraints.length; i++) {
       var range = constraints[i].split('-');
       if (range.length === 2) {
-        constraints[i] = (parseInt(range[0]) / 100) + '-' + (parseInt(range[1]) / 100);
+        var min = parseInt(range[0]) / 100;
+        var max = parseInt(range[1]) / 100;
+        constraints[i] = min.toFixed(2) + '-' + max.toFixed(2); // Ensure values are formatted correctly
       }
     }
   }
