@@ -39,7 +39,9 @@
           });
         }
       });
-      console.log(max);
+     filters.forEach(function(filter) {
+        console.log('Min:', filter.min, 'Max:', filter.max);
+      });
 
       // Get all products
       let products = document.querySelectorAll('.trans-product');
