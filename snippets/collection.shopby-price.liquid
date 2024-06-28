@@ -46,7 +46,7 @@
       products.forEach(function(product) {
         let showProduct = filters.every(function(filter) {
           let productConvertedPrice = parseFloat(product.dataset.convertedPrice);
-          console.log(productConvertedPrice);
+          console.log(showProduct);
           return productConvertedPrice >= filter.min && productConvertedPrice <= filter.max;
         });
 
