@@ -42,7 +42,6 @@
           {% for collection in collections %}
           {% paginate collection.products by collection.all_products_count %}
           {% for product in collection.products %}
-              <div class="product" data-price="{{ product.price }}" data-converted-price="{{ product.price | times: conversion_rate }}">
           {% capture product_id %}{{ product.id }}{% endcapture %}
           {% unless used contains product_id %}
           {% capture diff %}{{ tag_size | minus:product_id.size | money_without_currency | times:100 | divided_by:2 }}{% endcapture %}
@@ -55,7 +54,7 @@
           {% assign sold_out = true %}
           {% if product.available  %}
           {% assign sold_out = false %}
-          {% endif %}</div>div>
+          {% endif %}
           <tr class="row-{{tag_id}}" id="product-{{ product.id }}">
             <td style="vertical-align: middle;"class="prod_thumb" data-label="Product Name" data-title="Product">
               <div class="maxus-bxwishlist__img">
