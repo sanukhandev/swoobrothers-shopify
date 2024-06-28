@@ -22,66 +22,49 @@
   <!-- /.product-categories -->
 </section>
 
-
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-  // Function to filter products based on selected checkboxes
-  function filterProducts() {
-    // Get all checkboxes
-    let checkboxes = document.querySelectorAll('.price-filter');
-    let filters = [];
+    // Function to filter products based on selected checkboxes
+    function filterProducts() {
+      // Get all checkboxes
+      let checkboxes = document.querySelectorAll('.price-filter');
+      let filters = [];
 
-    // Collect checked filters
-    checkboxes.forEach(function(checkbox) {
-      if (checkbox.checked) {
-        filters.push(checkbox.value);
-      }
-    });
-
-    // Get all products
-    let products = document.querySelectorAll('.trans-product');
-
-    // Show/Hide products based on filters
-    products.forEach(function(product) {
-      let showProduct = filters.every(function(filter) {
-        return product.getAttribute('data-' + filter) !== null;
+      // Collect checked filters
+      checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+          filters.push({
+            min: parseFloat(checkbox.dataset.min),
+            max: parseFloat(checkbox.dataset.max)
+          });
+        }
       });
 
-      if (showProduct) {
-        product.style.display = 'block';
-      } else {
-        product.style.display = 'none';
-      }
+      // Get all products
+      let products = document.querySelectorAll('.trans-product');
+
+      // Show/Hide products based on filters
+      products.forEach(function(product) {
+        let showProduct = filters.every(function(filter) {
+          let productConvertedPrice = parseFloat(product.dataset.convertedPrice);
+          return productConvertedPrice >= filter.min && productConvertedPrice <= filter.max;
+        });
+
+        if (showProduct) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    // Attach event listeners to checkboxes
+    let checkboxes = document.querySelectorAll('.price-filter');
+    checkboxes.forEach(function(checkbox) {
+      checkbox.addEventListener('change', filterProducts);
     });
-  }
 
-  // Attach event listeners to checkboxes
-  let checkboxes = document.querySelectorAll('.price-filter');
-  checkboxes.forEach(function(checkbox) {
-    checkbox.addEventListener('change', filterProducts);
+    // Initial filter on page load
+    filterProducts();
   });
-
-  // Initial filter on page load
-  filterProducts();
-});
-
-document.querySelectorAll('.price-filter').forEach(function(filter) {
-  filter.addEventListener('click', function(event) {
-    event.preventDefault();
-    var minPrice = parseFloat(this.dataset.min);
-    var maxPrice = parseFloat(this.dataset.max);
-
-    // Implement your filtering logic here, for example:
-    // Show/Hide products based on the minPrice and maxPrice
-    var products = document.querySelectorAll('.product');
-    products.forEach(function(product) {
-      var productPrice = parseFloat(product.dataset.convertedPrice);
-      if (productPrice >= minPrice && productPrice <= maxPrice) {
-        product.style.display = 'block';
-      } else {
-        product.style.display = 'none';
-      }
-    });
-  });
-});
 </script>
