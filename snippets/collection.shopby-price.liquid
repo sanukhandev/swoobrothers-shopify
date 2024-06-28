@@ -26,10 +26,10 @@
   document.addEventListener('DOMContentLoaded', function() {
     // Function to filter products based on selected checkboxes
     function filterProducts() {
-      
       // Get all checkboxes
-      let checkboxes = document.querySelectorAll('.money');
+      let checkboxes = document.querySelectorAll('.price-filter');
       let filters = [];
+
       // Collect checked filters
       checkboxes.forEach(function(checkbox) {
         if (checkbox.checked) {
@@ -39,9 +39,7 @@
           });
         }
       });
-
-      // Output the min and max values to console
-      filters.forEach(function(filter) {
+     filters.forEach(function(filter) {
         console.log('Min:', filter.min, 'Max:', filter.max);
       });
 
