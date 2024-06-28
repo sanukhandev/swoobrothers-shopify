@@ -279,11 +279,13 @@
 
     },
 
- filterCreateUrl: function(baseLink) {
+filterCreateUrl: function(baseLink) {
   var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
 
   var dividedQuery = newQuery.replace(/constraint=(\d+)-(\d+)/g, function(match, min, max) {
-    return "constraint=" + (parseInt(min) / 100) + "-" + (parseInt(max) / 100);
+    // Convert the price range according to the selected currency
+    var conversionRate = window.selectedCurrencyRate || 1;
+    return "constraint=" + (parseInt(min) * conversionRate) + "-" + (parseInt(max) * conversionRate);
   });
 
   if (baseLink) {
@@ -294,7 +296,7 @@
     }
   }
   return location.pathname + "?" + dividedQuery;
-},
+}
 
     filterAjaxClick: function(baseLink) {
       delete Shopify.queryParams.page;
