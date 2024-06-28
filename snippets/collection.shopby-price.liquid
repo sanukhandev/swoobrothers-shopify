@@ -12,7 +12,7 @@
         <li class="cat-item">
           <input type="checkbox" value="{{ prices[0] }}-{{ prices[1] }}" id="price-filter-{{ forloop.index }}">
           <a href="javascript:void(0)" title="{{ range }}" class="price-filter" data-min="{{ prices[0] }}" data-max="{{ prices[1] }}">
-            <span class="price-text">{{ prices[0] }} - {{ prices[1] }}</span>
+            {{ prices[0] | money }} - {{ prices[1] | money }}
           </a>
         </li>
       {% endif %}
@@ -22,28 +22,23 @@
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    function updatePriceFilters() {
-      var currencyFormat = Shopify.formatMoney(1, "{{amount}}"); // Get the currency format from Shopify
+  document.querySelectorAll('.price-filter').forEach(function(filter) {
+    filter.addEventListener('click', function(event) {
+      event.preventDefault();
+      var minPrice = parseFloat(this.dataset.min);
+      var maxPrice = parseFloat(this.dataset.max);
 
-      document.querySelectorAll('.price-filter').forEach(function(filter) {
-        var minPrice = parseFloat(filter.dataset.min);
-        var maxPrice = parseFloat(filter.dataset.max);
-
-        // Use Shopify's Currency conversion API
-        var convertedMinPrice = Shopify.formatMoney(minPrice * 100, currencyFormat); // multiply by 100 because Shopify uses cents
-        var convertedMaxPrice = Shopify.formatMoney(maxPrice * 100, currencyFormat); // multiply by 100 because Shopify uses cents
-
-        filter.querySelector('.price-text').textContent = `${convertedMinPrice} - ${convertedMaxPrice}`;
+      // Implement your filtering logic here, for example:
+      // Show/Hide products based on the minPrice and maxPrice
+      var products = document.querySelectorAll('.product');
+      products.forEach(function(product) {
+        var productPrice = parseFloat(product.dataset.price);
+        if (productPrice >= minPrice && productPrice <= maxPrice) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
       });
-    }
-
-    // Initial update
-    updatePriceFilters();
-
-    // Update when currency is changed
-    document.addEventListener('currency:change', function() {
-      updatePriceFilters();
     });
   });
 </script>
