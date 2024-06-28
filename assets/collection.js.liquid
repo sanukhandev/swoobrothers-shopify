@@ -283,17 +283,14 @@ filterCreateUrl: function(baseLink) {
   var queryParams = Object.assign({}, Shopify.queryParams); // Clone the queryParams object
   
   // Adjust constraint values if needed
-  for (var key in queryParams) {
-    if (key === 'constraint') {
-      var values = queryParams[key];
-      for (var i = 0; i < values.length; i++) {
-        var range = values[i].split('-');
-        if (range.length === 2) {
-          values[i] = (parseInt(range[0]) / 100) + '-' + (parseInt(range[1]) / 100);
-        }
+  if (queryParams.hasOwnProperty('constraint')) {
+    var constraints = queryParams['constraint'];
+    for (var i = 0; i < constraints.length; i++) {
+      var range = constraints[i].split('-');
+      if (range.length === 2) {
+        constraints[i] = (parseInt(range[0]) / 100) + '-' + (parseInt(range[1]) / 100);
       }
     }
-    // Add any other necessary logic for different parameters
   }
   
   var newQuery = $.param(queryParams).replace(/%2B/g, '+');
