@@ -1,18 +1,72 @@
 <section class="filter-price filter-tag">
   <div class="widget-title">
-    <h2 class="mb-0">{{settings.shop_by_price_title}}</h2>
+    <h2 class="mb-0">{{ settings.shop_by_price_title }}</h2>
   </div>
-  
+
+  {% assign min_price = 999999999 %}
+  {% assign max_price = 0 %}
+
+  {% for product in collection.products %}
+    {% for variant in product.variants %}
+      {% assign price = variant.price | divided_by: 100 %}
+      {% if price < min_price %}
+        {% assign min_price = price %}
+      {% endif %}
+      {% if price > max_price %}
+        {% assign max_price = price %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {% assign price_range_step = 50 %}
+  {% assign price_ranges = "" %}
+
+  {% for i in (0..10) %}
+    {% assign current_price = min_price | plus: price_range_step | times: i %}
+    {% assign next_price = current_price | plus: price_range_step %}
+    {% if current_price >= max_price %}
+      {% break %}
+    {% endif %}
+    {% if next_price > max_price %}
+      {% assign next_price = max_price %}
+    {% endif %}
+    {% assign price_ranges = price_ranges | append: current_price | append: " - " | append: next_price | append: "," %}
+  {% endfor %}
+
+  {% assign price_ranges = price_ranges | split: "," %}
+
   <ul class="list-none list-price">
-    {% assign tags = settings.shop_by_price_list_tags | split: ',' %}
-    {% for t in tags %}
-    {% assign tag = t | strip %}
-    {% assign tag_value = tag | handleize %}
-    <li class="cat-item{% if current_tags contains tag %} current-cat{% endif %}">
-      <input type="checkbox" value="{{ tag_value | split: '|' | first }}" {% if current_tags contains tag %}checked{% endif %}/>
-      <a href="javascript:void(0)" title="{{tag}}" class=" {% if current_tags contains tag %}active{% endif %}">{{tag}}</a>
-    </li>
+    {% for range in price_ranges %}
+      {% if range != "" %}
+        {% assign prices = range | split: " - " %}
+        <li class="cat-item">
+          <input type="checkbox" value="{{ prices[0] }}-{{ prices[1] }}" id="price-filter-{{ forloop.index }}">
+          <a href="javascript:void(0)" title="{{ range }}" class="price-filter" data-min="{{ prices[0] }}" data-max="{{ prices[1] }}">{{ range }}</a>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
   <!-- /.product-categories -->
 </section>
+
+<script>
+  document.querySelectorAll('.price-filter').forEach(function(filter) {
+    filter.addEventListener('click', function(event) {
+      event.preventDefault();
+      var minPrice = this.dataset.min;
+      var maxPrice = this.dataset.max;
+
+      // Implement your filtering logic here, for example:
+      // Show/Hide products based on the minPrice and maxPrice
+      var products = document.querySelectorAll('.product');
+      products.forEach(function(product) {
+        var productPrice = parseFloat(product.dataset.price);
+        if (productPrice >= minPrice && productPrice <= maxPrice) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
