@@ -111,12 +111,11 @@
 
   {% render 'weglot_hreftags' %}
   {% render 'weglot_switcher' %}
-{% include 'mezereon-header-script' %}
 </head>
 {% comment %}
 Add the page template as a class for easy page or template specific styling.
 {% endcomment %}
-<body class="{% if content_for_header contains '.mezereon' and shop.metafields.mezereon.status == 'enabled' %} mezereon {% endif %}{% if settings.enable_rtl_mode %}rtl{% endif %} preload push_filter_left js_overhidden relative" {% if settings.bg_color_body != blank %}style="background: {{settings.bg_color_body}};"{% endif %}>
+<body class="{% if settings.enable_rtl_mode %}rtl{% endif %} preload push_filter_left js_overhidden relative" {% if settings.bg_color_body != blank %}style="background: {{settings.bg_color_body}};"{% endif %}>
 
   <div class="wrap">
     <div class="contentbody">
@@ -388,6 +387,5 @@ Add the page template as a class for easy page or template specific styling.
 
 
 
-{% include 'mezereon-end-of-body' %}
 </body>
 </html>
