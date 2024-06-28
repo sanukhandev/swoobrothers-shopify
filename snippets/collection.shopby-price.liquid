@@ -39,12 +39,10 @@
           });
         }
       });
-     filters.forEach(function(filter) {
-        console.log('Min:', filter.min, 'Max:', filter.max);
-      });
 
       // Get all products
       let products = document.querySelectorAll('.trans-product');
+
       // Show/Hide products based on filters
       products.forEach(function(product) {
         let showProduct = filters.every(function(filter) {
@@ -58,7 +56,7 @@
           product.style.display = 'none';
         }
       });
-    };
+    }
 
     // Attach event listeners to checkboxes
     let checkboxes = document.querySelectorAll('.price-filter');
