@@ -310,13 +310,15 @@ filterCreateUrl: function(baseLink) {
   // Construct the new URL
   var newUrl = '';
   if (baseLink) {
+    newUrl = baseLink;
     if (newQuery !== "") {
-      newUrl = baseLink + "?" + newQuery;
-    } else {
-      newUrl = baseLink;
+      newUrl += "?" + newQuery;
     }
   } else {
-    newUrl = location.pathname + "?" + newQuery;
+    newUrl = location.pathname;
+    if (newQuery !== "") {
+      newUrl += "?" + newQuery;
+    }
   }
 
   console.log("Generated URL:", newUrl); // Log the generated URL for debugging
