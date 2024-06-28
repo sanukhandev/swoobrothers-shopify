@@ -12,7 +12,7 @@
         <li class="cat-item">
           <input type="checkbox" value="{{ prices[0] }}-{{ prices[1] }}" id="price-filter-{{ forloop.index }}">
           <a href="javascript:void(0)" title="{{ range }}" class="price-filter" data-min="{{ prices[0] }}" data-max="{{ prices[1] }}">
-            {{ prices[0] | money }} - {{ prices[1] | money }}
+            Dhs. {{ prices[0] }} - Dhs. {{ prices[1] }}
           </a>
         </li>
       {% endif %}
