@@ -280,8 +280,8 @@
     },
 
  filterCreateUrl: function(baseLink) {
- // var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
-var newQuery ='';
+  var newQuery = $.param(Shopify.queryParams).replace(/%2B/g, '+');
+//var newQuery ='';
   var dividedQuery = newQuery.replace(/constraint=(\d+)-(\d+)/g, function(match, min, max) {
     return "constraint=" + (parseInt(min) / 100) + "-" + (parseInt(max) / 100);
   });
