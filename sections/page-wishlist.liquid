@@ -1,4 +1,13 @@
-{% assign conversion_rate = 1.2 %} <!-- Replace with dynamic conversion rate -->
+<script>
+  var conversionRate = 1;
+  {% if shop.currency != currency %}
+    {% for rate in shop.enabled_currencies %}
+      {% if rate.code == currency %}
+        conversionRate = {{ rate.rate }};
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</script>
 
 <div class="wrap-bread-crumb breadcrumb_collection2">
   <div class="text-center bg-breadcrumb" style="background-image : url({% if section.settings.bg_breadcrumb != blank  %}{{section.settings.bg_breadcrumb | img_url : 'master'}} {% else %}//via.placeholder.com/1920x510 {% endif %})">
