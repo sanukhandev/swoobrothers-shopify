@@ -37,20 +37,22 @@
       {%- endif -%}
       <mz-selections v-if="!loading && selections.length > 0"></mz-selections>
       <div class="mz-row">
-        <div class="{{ filterLayoutClass }}">
-          <div class="mz-aggs mz-aggs-vertical mz-hidden-xs">
-            <portal to="mz-mobile-facets" :disabled="!portalNav">
-              <mz-banner zone="facets-top-1"></mz-banner>
-              <mz-banner zone="facets-top-2"></mz-banner>
-              {%- if filterLayout == 'vertical' -%}
-              {% include 'mezereon-skeleton', type: 'vertical-filter', style: '' %}
-              {%- endif -%}
-              <mz-refinements icon-set="animated"></mz-refinements>
-              <mz-banner zone="facets-bottom-1"></mz-banner>
-              <mz-banner zone="facets-bottom-2"></mz-banner>
-            </portal>
+        <mounting-portal append mount-to=".mz-filter-placeholder">
+          <div class="{{ filterLayoutClass }}">
+            <div class="mz-aggs mz-aggs-vertical mz-hidden-xs">
+              <portal to="mz-mobile-facets" :disabled="!portalNav">
+                <mz-banner zone="facets-top-1"></mz-banner>
+                <mz-banner zone="facets-top-2"></mz-banner>
+                {%- if filterLayout == 'vertical' -%}
+                {% include 'mezereon-skeleton', type: 'vertical-filter', style: '' %}
+                {%- endif -%}
+                <mz-refinements icon-set="animated"></mz-refinements>
+                <mz-banner zone="facets-bottom-1"></mz-banner>
+                <mz-banner zone="facets-bottom-2"></mz-banner>
+              </portal>
+            </div>
           </div>
-        </div>
+        </mounting-portal>  
         <div class="mz-hits">
           {% include 'mezereon-skeleton', type: 'action-bar', style: '' %}
           <mz-action-bar v-if="!loading" :toggle-layout="false" @toggle-portal-nav="togglePortalNav">
