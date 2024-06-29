@@ -2,8 +2,8 @@
   <div  class="container container-v1">
     <div class="row">
       <div class="col-lg-3 {% if section.settings.sidebar_layout == 'sidebar_left' %} order-1 {% elsif section.settings.sidebar_layout == 'sidebar_right' %} order-2 {% endif %} ">
-        <div class="mz-filter-placeholder">FILTER</div>
         <div class="filter_sidebar_general d-none d-lg-block {% if section.settings.ena_sticky_sidebar %}sticky{% endif %}">
+          <div class="mz-filter-placeholder">FILTER</div>
           {% include 'collection-sidebar' %}
         </div>
         <div class="filter-to-left d-lg-none">
