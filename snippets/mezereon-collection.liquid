@@ -1,5 +1,8 @@
 {%- if content_for_header contains '.mezereon' and shop.metafields.mezereon.status == 'enabled' -%}
 {%- if shop.metafields.mezereon.collection == 'enabled' -%}
+{%- capture filterEnabled -%}{% include 'mezereon-filter-layout', f: 'filter-enabled' %}{%- endcapture -%}
+{%- assign filterEnabled = filterEnabled | strip -%}
+{%- if filterEnabled == 'enabled' -%}
 {%- assign loadingEffect = 'none'-%}
 {%- assign loadingEffect = 'skeleton'-%}
 {%- assign loadingEffect = 'spinner'-%}
@@ -17,10 +20,7 @@
   {%- if loadingEffect == 'spinner'-%}
   <img src="https://cdn.mezereon.net/assets/loading.gif" class="mz-loader" v-if="loading" />
   {%- endif -%}
-  <div class="mz-search-revealed" :style="{'opacity': keyword && !loading ? 1 : 0}" v-html="$t('SearchRevealed', {keyword: keyword})">
-    &nbsp;
-  </div>
-    {%- if loadingEffect == 'none'-%}
+  {%- if loadingEffect == 'none'-%}
   <div class="mz-results" :class="{'mz-loaded': !loading }">
   {%- elsif loadingEffect == 'spinner' -%}
   <div v-if="!loading" class="mz-results" :class="{'mz-loaded': !loading }">
@@ -35,7 +35,7 @@
       {%- if filterSelections -%}
       {% include 'mezereon-skeleton', type: 'selections', style: '' %}
       {%- endif -%}
-      <mz-selections v-if="!loading && selections.length > 0" :show-keyword="false"></mz-selections>
+      <mz-selections v-if="!loading && selections.length > 0"></mz-selections>
       <div class="mz-row">
         <div class="{{ filterLayoutClass }}">
           <div class="mz-aggs mz-aggs-vertical mz-hidden-xs">
@@ -74,5 +74,6 @@
     <portal-target name="mz-mobile-facets"></portal-target>
   </ch-drawer>
 </div>
+{%- endif -%}
 {%- endif -%}
 {%- endif -%}
