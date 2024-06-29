@@ -5071,7 +5071,10 @@
             "value": "collection.shopby-size",
             "label": "Widget Size Filter"
           },
-          
+          {
+            "value": "collection.shopby-price",
+            "label": "Widget Price Filter"
+          },
           {
             "value": "collection-widget-tags",
             "label": "Widget Tags"
