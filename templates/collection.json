@@ -34,8 +34,8 @@
         "title_heading": "BEST SELLERS",
         "select_collection": "all-products",
         "products_limit": 12,
-        "ena_filter": false,
-        "ena_filter2": false
+        "ena_filter": true,
+        "ena_filter2": true
       }
     }
   },
