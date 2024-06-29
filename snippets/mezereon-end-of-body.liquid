@@ -1,7 +1,7 @@
 {%- if content_for_header contains '.mezereon' and shop.metafields.mezereon.status == 'enabled' -%}
 {%- if shop.metafields.mezereon.suggest == 'enabled' -%}
 <div id="mz-autocomplete">
-  <mz-autocomplete :delay="50" selector="input[name='q']" query-param="q" search-url="{{ routes.search_url | replace: "/search" , "/collections/all" }}"></mz-autocomplete>
+  <mz-autocomplete :delay="50" selector="input[name='q']" query-param="q" search-url="{{ routes.search_url | replace: "/search" , "/pages/search" }}"></mz-autocomplete>
 </div>
 {%- endif -%}
 
@@ -64,14 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('form[action="' + mz.context.root + 'search"]').forEach(function (form) {
     form.addEventListener("submit", function () {
       if (window.mz.enabled) {
-        form.action = mz.context.root + 'collections/all'
+        form.action = mz.context.root + 'pages/search'
       }
     })
   })
   document.querySelectorAll('a[href="' + mz.context.root + 'search"]').forEach(function (link) {
     link.addEventListener("click", function () {
       if (window.mz.enabled) {
-        link.href = mz.context.root + 'collections/all'
+        link.href = mz.context.root + 'pages/search'
       }
     })
   })
