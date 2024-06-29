@@ -24,7 +24,6 @@
       </div>   
       <div class="col-lg-9 px-0 {% if section.settings.sidebar_layout == 'sidebar_left' %} order-2 {% elsif section.settings.sidebar_layout == 'sidebar_right' %} order-1 {% endif %}">
         <div class="content-page">
-          {% include 'mezereon-collection' %}
           <div class="container container-v2">
             <div class="row shop_control " >
               <div  class="col-md-6 col-6">
@@ -82,6 +81,7 @@
             </div>
 
             <div class="clearfix relative collection_prod">  
+              {% include 'mezereon-collection' %}  
               {% if section.settings.prod_layout == 'prod_grid' %}
               <div class="product-grid-view grid-uniform">
                 <div class="row ">
