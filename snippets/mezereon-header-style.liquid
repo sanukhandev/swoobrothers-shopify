@@ -26,7 +26,7 @@
 {%- capture filterEnabled -%}{% include 'mezereon-filter-layout', f: 'filter-enabled' %}{%- endcapture -%}
 {%- assign filterEnabled = filterEnabled | strip -%}
 {%- if filterEnabled == 'enabled' -%}
-    .mezereon .shop_control, .product-grid-view {
+    .engoj-collection-sidebar, .mezereon .shop_control, .product-grid-view {
         display: none !important;
     }
 {%- endif -%}
