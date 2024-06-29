@@ -23,7 +23,7 @@
 {%- capture filterEnabled -%}{% include 'mezereon-filter-layout', f: 'filter-enabled' %}{%- endcapture -%}
 {%- assign filterEnabled = filterEnabled | strip -%}
 {%- if filterEnabled == 'enabled' -%}
-    .mezereon .filter_sortby {
+    .mezereon .filter_sortby, .mezereon .change_prod {
         display: none !important;
     }
 {%- endif -%}
