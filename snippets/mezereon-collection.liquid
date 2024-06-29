@@ -11,7 +11,7 @@
 {%- assign filterLayoutClass = 'mz-filter-layout-' | append: filterLayout -%}
 {%- capture filterSelections -%}{% include 'mezereon-filter-layout', f: 'filter-selections' %}{%- endcapture -%}
 {%- assign filterSelections = filterSelections | strip -%}
-{%- if filterSelections == 'true' -%}
+{%- if filterSelections == 'false' -%}
   {%- assign filterSelections = true -%}
 {%- else -%}
   {%- assign filterSelections = false -%}
