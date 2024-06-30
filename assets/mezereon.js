@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // placeholder
   }
   function afterUpdate() {
-    console.log(mz.context.shopCurrency);
-    // placeholder
+    var shopCurrency = mz.context.shopCurrency;
+    var cookieCurrency = Currency.cookie.read();
+    Currency.convertAll(shopCurrency, cookieCurrency)
   }
   if (mz.app && mz.app.$bus) {
     mz.app.$bus.on('after-update', afterUpdate)
