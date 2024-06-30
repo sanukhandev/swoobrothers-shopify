@@ -10,12 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var cookieCurrency = Currency.cookie.read();
     Currency.convertAll(shopCurrency, cookieCurrency)
 
-    var price = document.querySelector('[data-facet-name="price"]');
-    debugger
+    var price = document.querySelectorAll('[data-facet-name="price"]');
     if (shopCurrency != cookieCurrency) {
-      price.classList.add("mz-hidden");
+      price.forEach(x => x.classList.add("mz-hidden"));
     } else {
-      price.classList.remove("mz-hidden");
+      price.forEach(x => x.classList.remove("mz-hidden"));
     }
   }
   if (mz.app && mz.app.$bus) {
