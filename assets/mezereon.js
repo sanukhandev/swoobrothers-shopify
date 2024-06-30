@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var shopCurrency = mz.context.shopCurrency;
     var cookieCurrency = Currency.cookie.read();
     Currency.convertAll(shopCurrency, cookieCurrency)
+
     var price = document.querySelector('[data-facet-name="price"]');
+    debugger
     if (shopCurrency != cookieCurrency) {
       price.classList.add("mz-hidden");
     } else {
