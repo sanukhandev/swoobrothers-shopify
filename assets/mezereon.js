@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     togglePrice()
   });
   function togglePrice() {
+    var shopCurrency = mz.context.shopCurrency;
+    var cookieCurrency = Currency.cookie.read();
     var price = document.querySelectorAll('[data-facet-name="price"]');
     if (shopCurrency != cookieCurrency) {
       price.forEach(x => x.classList.add("mz-hidden"));
