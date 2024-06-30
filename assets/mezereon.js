@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   var buttons = jQuery('#currencies li a');
   buttons.click(function() {
-    debugger
     togglePrice()
   });
   function togglePrice() {
