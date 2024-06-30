@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // placeholder
   }
   function afterUpdate() {
+    console.log(mz.shopCurrency);
     // placeholder
   }
   if (mz.app && mz.app.$bus) {
