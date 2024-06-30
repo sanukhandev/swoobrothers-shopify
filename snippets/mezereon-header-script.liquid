@@ -37,6 +37,7 @@
     {%- assign filterEnabled = filterEnabled | strip -%}
     c.filterShow={%- if filterEnabled == 'enabled' -%}true{%- else-%}false{%- endif %};
     c.root = Shopify.routes.root;
+    c.shopCurrency = '{{ shop.currency }}';
   })(window);
 </script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.min.js"></script>
