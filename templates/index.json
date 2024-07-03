@@ -168,6 +168,7 @@
         "colection_fKwgGq": {
           "type": "colection",
           "settings": {
+            "brand_img": "shopify:\/\/shop_images\/women-bag.png",
             "title_collection": "Women Bag",
             "brand_url": "shopify:\/\/collections\/women-bags"
           }
