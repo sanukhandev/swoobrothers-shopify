@@ -133,14 +133,6 @@
             "brand_url": "shopify:\/\/collections\/mens-sneakers-shoes"
           }
         },
-        "colection_FrtacU": {
-          "type": "colection",
-          "settings": {
-            "brand_img": "shopify:\/\/shop_images\/mens-bracelet_c8bc3d14-bf97-4e4a-ad8b-56cd0443c11b.png",
-            "title_collection": "Mens Bracelets",
-            "brand_url": "shopify:\/\/collections\/jeans"
-          }
-        },
         "colection_fKwgGq": {
           "type": "colection",
           "settings": {
@@ -156,7 +148,6 @@
         "colection_xrEibC",
         "colection_DNmTQa",
         "colection_jUffPm",
-        "colection_FrtacU",
         "colection_fKwgGq"
       ],
       "custom_css": [
