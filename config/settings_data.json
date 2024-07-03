@@ -599,7 +599,7 @@
     "gmap_latitude": "33.3209127",
     "gmap_longitude": "-111.8005377",
     "show_menu_toolbar": true,
-    "enable_rtl_mode": false,
+    "enable_rtl_mode": true,
     "checkout_header_image": "",
     "checkout_logo_image": "",
     "checkout_logo_position": "left",
