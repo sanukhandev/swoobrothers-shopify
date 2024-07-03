@@ -125,28 +125,12 @@
             "brand_url": "shopify:\/\/collections\/sunglasses"
           }
         },
-        "colection_bhm8qz": {
-          "type": "colection",
-          "settings": {
-            "brand_img": "shopify:\/\/shop_images\/Cotton_Pants.jpg",
-            "title_collection": "Cotton Pants",
-            "brand_url": "shopify:\/\/collections\/cotton-pants"
-          }
-        },
         "colection_jUffPm": {
           "type": "colection",
           "settings": {
             "brand_img": "shopify:\/\/shop_images\/Sneakers.jpg",
             "title_collection": "Men's Sneakers",
             "brand_url": "shopify:\/\/collections\/mens-sneakers-shoes"
-          }
-        },
-        "colection_qDnqNp": {
-          "type": "colection",
-          "settings": {
-            "brand_img": "shopify:\/\/shop_images\/Panties.jpg",
-            "title_collection": "Panties",
-            "brand_url": "shopify:\/\/collections\/panties"
           }
         },
         "colection_FrtacU": {
@@ -171,9 +155,7 @@
         "colection_UrXgQW",
         "colection_xrEibC",
         "colection_DNmTQa",
-        "colection_bhm8qz",
         "colection_jUffPm",
-        "colection_qDnqNp",
         "colection_FrtacU",
         "colection_fKwgGq"
       ],
