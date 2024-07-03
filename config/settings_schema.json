@@ -6090,11 +6090,7 @@
         "label": "Color Heading",
         "default": "#000"
       },
-      {
-        "type": "url",
-        "id": "link_collection_10",
-        "label": "Url"
-      }
+     
     ]
   },
   {
