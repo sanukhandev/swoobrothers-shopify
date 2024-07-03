@@ -117,6 +117,14 @@
             "brand_url": "shopify:\/\/collections\/oversize-t-shirt"
           }
         },
+        "colection_fKwgGq": {
+          "type": "colection",
+          "settings": {
+            "brand_img": "shopify:\/\/shop_images\/women-bag.png",
+            "title_collection": "Women Bag",
+            "brand_url": "shopify:\/\/collections\/women-bags"
+          }
+        },
         "colection_DNmTQa": {
           "type": "colection",
           "settings": {
@@ -133,14 +141,6 @@
             "brand_url": "shopify:\/\/collections\/mens-sneakers-shoes"
           }
         },
-        "colection_fKwgGq": {
-          "type": "colection",
-          "settings": {
-            "brand_img": "shopify:\/\/shop_images\/women-bag.png",
-            "title_collection": "Women Bag",
-            "brand_url": "shopify:\/\/collections\/women-bags"
-          }
-        },
         "colection_j7jcGW": {
           "type": "colection",
           "settings": {
@@ -154,9 +154,9 @@
         "colection_C7QYEz",
         "colection_UrXgQW",
         "colection_xrEibC",
+        "colection_fKwgGq",
         "colection_DNmTQa",
         "colection_jUffPm",
-        "colection_fKwgGq",
         "colection_j7jcGW"
       ],
       "custom_css": [
