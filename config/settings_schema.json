@@ -5043,6 +5043,29 @@
         "label": "Url"
       },
       {
+        "type": "image_picker",
+        "id": "img_collection_11",
+        "info": "110 x 110px recommended",
+        "label": "Icon Collection 11"
+      },
+      {
+        "type": "text",
+        "id": "title_collection_11",
+        "label": "Heading",
+        "default": "New In"
+      },
+      {
+        "type": "color",
+        "id": "color_title_collection_11",
+        "label": "Color Heading",
+        "default": "#000"
+      },
+      {
+        "type": "url",
+        "id": "url_coll_11",
+        "label": "Url"
+      },
+      {
         "type": "header",
         "content": "Widget Filter"
       },
