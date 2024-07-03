@@ -860,6 +860,16 @@
         "label": "Url Image blocklinks 10"
       },
       {
+        "type": "image_picker",
+        "id": "apmenuitem_img_blocklinks_1_11",
+        "label": "Image blocklinks 11"
+      },
+      {
+        "type": "url",
+        "id": "apmenuitem_url_blocklinks_1_11",
+        "label": "Url Image blocklinks 11"
+      },
+      {
         "type": "header",
         "content": "Menu block video"
       },
