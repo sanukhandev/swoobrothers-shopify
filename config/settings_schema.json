@@ -6068,29 +6068,7 @@
         "id": "link_collection_9",
         "label": "Url"
       },
-      {
-        "type": "header",
-        "content": "Collection 10"
-      },
-      {
-        "type": "image_picker",
-        "id": "img_col_10",
-        "info": "110 x 110px recommended",
-        "label": "Image Collection"
-      },
-      {
-        "type": "text",
-        "id": "title_col_10",
-        "label": "Heading",
-        "default": "New In"
-      },
-      {
-        "type": "color",
-        "id": "color_title_col_10",
-        "label": "Color Heading",
-        "default": "#000"
-      },
-     
+          
     ]
   },
   {
