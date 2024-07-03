@@ -164,6 +164,13 @@
             "title_collection": "Jeans",
             "brand_url": "shopify:\/\/collections\/jeans"
           }
+        },
+        "colection_fKwgGq": {
+          "type": "colection",
+          "settings": {
+            "title_collection": "Women Bag",
+            "brand_url": "shopify:\/\/collections\/women-bags"
+          }
         }
       },
       "block_order": [
@@ -175,7 +182,8 @@
         "colection_bhm8qz",
         "colection_jUffPm",
         "colection_qDnqNp",
-        "colection_FrtacU"
+        "colection_FrtacU",
+        "colection_fKwgGq"
       ],
       "custom_css": [
 
