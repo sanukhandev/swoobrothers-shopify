@@ -6040,35 +6040,7 @@
         "type": "url",
         "id": "link_collection_8",
         "label": "Url"
-      },
-      {
-        "type": "header",
-        "content": "Collection 9"
-      },
-      {
-        "type": "image_picker",
-        "id": "img_col_9",
-        "info": "110 x 110px recommended",
-        "label": "Image Collection"
-      },
-      {
-        "type": "text",
-        "id": "title_col_9",
-        "label": "Heading",
-        "default": "New In"
-      },
-      {
-        "type": "color",
-        "id": "color_title_col_9",
-        "label": "Color Heading",
-        "default": "#000"
-      },
-      {
-        "type": "url",
-        "id": "link_collection_9",
-        "label": "Url"
-      },
-          
+      },          
     ]
   },
   {
