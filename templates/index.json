@@ -93,14 +93,6 @@
     "section_collection_v1_KLLVnM": {
       "type": "section-collection-v1",
       "blocks": {
-        "colection_L6m9YJ": {
-          "type": "colection",
-          "settings": {
-            "brand_img": "shopify:\/\/shop_images\/Shirts.jpg",
-            "title_collection": "Casual Shirts",
-            "brand_url": "shopify:\/\/collections\/casual-shirts"
-          }
-        },
         "colection_C7QYEz": {
           "type": "colection",
           "settings": {
@@ -112,9 +104,9 @@
         "colection_UrXgQW": {
           "type": "colection",
           "settings": {
-            "brand_img": "shopify:\/\/shop_images\/T_Shirts.jpg",
-            "title_collection": "T-Shirts",
-            "brand_url": "shopify:\/\/collections\/t-shirts"
+            "brand_img": "shopify:\/\/shop_images\/men-belt_20e6a77a-67f4-454b-82ac-0e1194dcd4e3.png",
+            "title_collection": "Mens Belts",
+            "brand_url": "shopify:\/\/collections\/belts-for-men"
           }
         },
         "colection_xrEibC": {
@@ -175,7 +167,6 @@
         }
       },
       "block_order": [
-        "colection_L6m9YJ",
         "colection_C7QYEz",
         "colection_UrXgQW",
         "colection_xrEibC",
