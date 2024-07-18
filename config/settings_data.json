@@ -9,7 +9,7 @@
 */
 {
   "current": {
-    "show_multiple_currencies": true,
+    "show_multiple_currencies": false,
     "currency_format": "money_format",
     "supported_currencies": "AED INR GBP CAD USD AUD EUR JPY BND",
     "default_currency": "AED",
